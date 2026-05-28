@@ -1,0 +1,39 @@
+import Link from "next/link";
+import { Phone } from "lucide-react";
+import { company } from "@/data/company";
+
+type Props = {
+  title?: string;
+  intro?: string;
+};
+
+export function CTASection({
+  title = "Een klus die geruimd of gesloopt moet worden?",
+  intro = "Stuur een korte beschrijving van het werk en we komen graag vrijblijvend langs voor een offerte op locatie.",
+}: Props) {
+  return (
+    <section className="bg-navy-900 text-white">
+      <div className="mx-auto flex max-w-container flex-col items-start gap-8 px-6 py-14 lg:flex-row lg:items-center lg:justify-between lg:py-16">
+        <div className="max-w-2xl">
+          <h2 className="text-2xl font-bold tracking-tight md:text-3xl">{title}</h2>
+          <p className="mt-3 text-base leading-relaxed text-steel-200">{intro}</p>
+        </div>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-sm bg-white px-6 py-3.5 text-sm font-semibold text-navy-900 transition-colors hover:bg-steel-100"
+          >
+            Offerte aanvragen
+          </Link>
+          <a
+            href={company.phoneHref}
+            className="inline-flex items-center justify-center gap-2 rounded-sm border border-steel-400/40 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+          >
+            <Phone className="h-4 w-4" aria-hidden />
+            {company.phone}
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
