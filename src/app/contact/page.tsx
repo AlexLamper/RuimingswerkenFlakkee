@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactInfo } from "@/components/ContactInfo";
 import { PageHeader } from "@/components/PageHeader";
+import { Reveal } from "@/components/Reveal";
 import { company } from "@/data/company";
 
 export const metadata: Metadata = {
@@ -21,8 +22,12 @@ export default function ContactPage() {
 
       <section className="bg-steel-50">
         <div className="mx-auto grid max-w-container gap-6 px-5 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1fr_1.3fr] lg:py-20">
-          <ContactInfo />
-          <ContactForm />
+          <Reveal>
+            <ContactInfo />
+          </Reveal>
+          <Reveal delay={120}>
+            <ContactForm />
+          </Reveal>
         </div>
       </section>
     </>

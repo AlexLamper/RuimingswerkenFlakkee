@@ -15,22 +15,22 @@ export function Hero() {
           backgroundSize: "40px 40px",
         }}
       />
-      <div className="relative mx-auto grid max-w-container items-center gap-8 px-5 py-10 sm:gap-10 sm:px-6 sm:py-14 lg:grid-cols-[1.25fr_1fr] lg:gap-12 lg:py-16">
+      <div className="relative mx-auto grid max-w-container items-center gap-10 px-5 py-12 sm:gap-12 sm:px-6 sm:py-16 lg:grid-cols-[1.25fr_1fr] lg:gap-14 lg:py-20">
         <div>
           <span className="inline-flex items-center gap-2 rounded-sm border border-navy-700 bg-navy-800/60 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-steel-200 sm:text-xs">
             <ShieldCheck className="h-3.5 w-3.5" aria-hidden />
             Vakwerk op Goeree-Overflakkee
           </span>
-          <h1 className="mt-5 text-4xl font-bold leading-[1.1] tracking-tight sm:mt-6 sm:text-5xl lg:text-[3.25rem] xl:text-6xl">
+          <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.5rem] xl:text-6xl">
             Ruimingswerken, Flakkee
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-steel-200 sm:mt-5 sm:text-lg lg:text-base xl:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-steel-200 sm:text-lg lg:text-lg">
             Sloop, ruiming, demontage en ontruiming - uitgevoerd door een
             ervaren team dat zijn werk netjes en volgens afspraak oplevert.
             Van een enkele schuur tot een compleet bedrijfspand.
           </p>
 
-          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row">
             <Link
               href="/contact"
               className="inline-flex w-full items-center justify-center rounded-sm bg-white px-6 py-3.5 text-sm font-semibold text-navy-900 transition-colors hover:bg-steel-100 sm:w-auto"

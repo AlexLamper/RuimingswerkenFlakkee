@@ -3,6 +3,7 @@ import { ArrowRight, ShieldCheck, Users, Wrench } from "lucide-react";
 import { CTASection } from "@/components/CTASection";
 import { Hero } from "@/components/Hero";
 import { ProjectCard } from "@/components/ProjectCard";
+import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { TrustBar } from "@/components/TrustBar";
@@ -36,24 +37,28 @@ export default function HomePage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-container px-5 py-14 sm:px-6 sm:py-20 lg:py-24">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <SectionHeading
-              eyebrow="Onze diensten"
-              title="Sloop, ruiming en alles daartussen"
-              intro="Of het nu om een enkele schuur gaat of om een compleet bedrijfsterrein - we pakken het in één hand aan, van aanvraag tot afvoer."
-            />
-            <Link
-              href="/diensten"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-navy-900 hover:underline"
-            >
-              Bekijk alle diensten
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </Link>
-          </div>
+          <Reveal>
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <SectionHeading
+                eyebrow="Onze diensten"
+                title="Sloop, ruiming en alles daartussen"
+                intro="Of het nu om een enkele schuur gaat of om een compleet bedrijfsterrein - we pakken het in één hand aan, van aanvraag tot afvoer."
+              />
+              <Link
+                href="/diensten"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-navy-900 hover:underline"
+              >
+                Bekijk alle diensten
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </div>
+          </Reveal>
 
           <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
+            {services.map((service, i) => (
+              <Reveal key={service.slug} delay={i * 70} className="h-full">
+                <ServiceCard service={service} />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -61,7 +66,7 @@ export default function HomePage() {
 
       <section className="bg-steel-50">
         <div className="mx-auto grid max-w-container gap-10 px-5 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:py-24">
-          <div>
+          <Reveal>
             <SectionHeading
               eyebrow="Over ons"
               title="Een regionaal bedrijf met oog voor detail"
@@ -79,26 +84,29 @@ export default function HomePage() {
               Lees meer over ons
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
-          </div>
+          </Reveal>
 
           <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-1">
-            {valuePillars.map((pillar) => {
+            {valuePillars.map((pillar, i) => {
               const Icon = pillar.icon;
               return (
-                <div
+                <Reveal
                   key={pillar.title}
-                  className="flex h-full flex-col border border-steel-200 bg-white p-6"
+                  delay={i * 100}
+                  className="h-full"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-navy-900 text-white">
-                    <Icon className="h-5 w-5" aria-hidden />
+                  <div className="flex h-full flex-col border border-steel-200 bg-white p-6">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-navy-900 text-white">
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </div>
+                    <h3 className="mt-4 text-base font-semibold text-navy-900">
+                      {pillar.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-steel-600">
+                      {pillar.text}
+                    </p>
                   </div>
-                  <h3 className="mt-4 text-base font-semibold text-navy-900">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-steel-600">
-                    {pillar.text}
-                  </p>
-                </div>
+                </Reveal>
               );
             })}
           </div>
@@ -107,24 +115,28 @@ export default function HomePage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-container px-5 py-14 sm:px-6 sm:py-20 lg:py-24">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <SectionHeading
-              eyebrow="Uitgelichte projecten"
-              title="Recent uitgevoerd werk"
-              intro="Een greep uit de klussen waar we onlangs aan hebben gewerkt - verspreid over Goeree-Overflakkee."
-            />
-            <Link
-              href="/projecten"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-navy-900 hover:underline"
-            >
-              Alle projecten
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </Link>
-          </div>
+          <Reveal>
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <SectionHeading
+                eyebrow="Uitgelichte projecten"
+                title="Recent uitgevoerd werk"
+                intro="Een greep uit de klussen waar we onlangs aan hebben gewerkt - verspreid over Goeree-Overflakkee."
+              />
+              <Link
+                href="/projecten"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-navy-900 hover:underline"
+              >
+                Alle projecten
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </div>
+          </Reveal>
 
           <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.slice(0, 3).map((project) => (
-              <ProjectCard key={project.number} project={project} />
+            {projects.slice(0, 3).map((project, i) => (
+              <Reveal key={project.number} delay={i * 90} className="h-full">
+                <ProjectCard project={project} />
+              </Reveal>
             ))}
           </div>
         </div>

@@ -60,6 +60,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="nl" className={inter.variable}>
+      <head>
+        <noscript>
+          {/* Reveal-animaties zijn JS-gestuurd; zonder JS direct zichtbaar tonen. */}
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                "[data-reveal]{opacity:1 !important;transform:none !important}",
+            }}
+          />
+        </noscript>
+      </head>
       <body className="flex min-h-screen flex-col font-sans">
         <Header />
         <main id="main" className="flex-1">

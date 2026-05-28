@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { CTASection } from "@/components/CTASection";
 import { PageHeader } from "@/components/PageHeader";
+import { Reveal } from "@/components/Reveal";
 import { TrustBar } from "@/components/TrustBar";
 import { company } from "@/data/company";
 
@@ -30,7 +31,7 @@ export default function OverOnsPage() {
 
       <section className="bg-white">
         <div className="mx-auto grid max-w-container gap-10 px-5 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:py-20">
-          <div>
+          <Reveal>
             <h2 className="text-2xl font-bold tracking-tight text-navy-900 md:text-3xl">
               Ons verhaal
             </h2>
@@ -62,21 +63,23 @@ export default function OverOnsPage() {
                 werken.
               </p>
             </div>
-          </div>
+          </Reveal>
 
-          <aside className="border border-steel-200 bg-steel-50 p-6 sm:p-7">
-            <h3 className="text-base font-semibold uppercase tracking-wider text-navy-900">
-              Waar wij voor staan
-            </h3>
-            <ul className="mt-5 space-y-4">
-              {values.map((value) => (
-                <li key={value} className="flex items-start gap-3 text-sm text-steel-700">
-                  <Check className="mt-0.5 h-5 w-5 flex-none text-navy-700" aria-hidden />
-                  <span className="leading-relaxed">{value}</span>
-                </li>
-              ))}
-            </ul>
-          </aside>
+          <Reveal delay={120}>
+            <aside className="border border-steel-200 bg-steel-50 p-6 sm:p-7">
+              <h3 className="text-base font-semibold uppercase tracking-wider text-navy-900">
+                Waar wij voor staan
+              </h3>
+              <ul className="mt-5 space-y-4">
+                {values.map((value) => (
+                  <li key={value} className="flex items-start gap-3 text-sm text-steel-700">
+                    <Check className="mt-0.5 h-5 w-5 flex-none text-navy-700" aria-hidden />
+                    <span className="leading-relaxed">{value}</span>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          </Reveal>
         </div>
       </section>
 
