@@ -16,9 +16,9 @@ type Props = {
 export function PageHeader({ eyebrow, title, intro, crumbs }: Props) {
   return (
     <section className="border-b border-steel-200 bg-navy-900 text-white">
-      <div className="mx-auto max-w-container px-6 py-14 lg:py-20">
+      <div className="mx-auto max-w-container px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
         {crumbs && crumbs.length > 0 && (
-          <nav aria-label="Kruimelpad" className="mb-6 text-xs text-steel-300">
+          <nav aria-label="Kruimelpad" className="mb-5 text-xs text-steel-300 sm:mb-6">
             <ol className="flex flex-wrap items-center gap-1.5">
               {crumbs.map((crumb, i) => (
                 <li key={i} className="flex items-center gap-1.5">
@@ -36,11 +36,11 @@ export function PageHeader({ eyebrow, title, intro, crumbs }: Props) {
           </nav>
         )}
         {eyebrow && (
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-steel-300">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-steel-300 sm:text-xs">
             {eyebrow}
           </p>
         )}
-        <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+        <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
           {title}
         </h1>
         {intro && (

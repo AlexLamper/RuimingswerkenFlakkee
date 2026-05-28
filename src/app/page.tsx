@@ -19,12 +19,12 @@ const valuePillars = [
   {
     icon: Wrench,
     title: "Vakkundig",
-    text: "Ervaren team met het juiste materieel — van compactgraver tot grijper.",
+    text: "Ervaren team met het juiste materieel - van compactgraver tot grijper.",
   },
   {
     icon: Users,
     title: "Persoonlijk",
-    text: "Eén aanspreekpunt, korte lijnen en heldere afspraken — van offerte tot oplevering.",
+    text: "Eén aanspreekpunt, korte lijnen en heldere afspraken - van offerte tot oplevering.",
   },
 ];
 
@@ -35,12 +35,12 @@ export default function HomePage() {
       <TrustBar />
 
       <section className="bg-white">
-        <div className="mx-auto max-w-container px-6 py-20 lg:py-24">
+        <div className="mx-auto max-w-container px-5 py-14 sm:px-6 sm:py-20 lg:py-24">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
               eyebrow="Onze diensten"
               title="Sloop, ruiming en alles daartussen"
-              intro="Of het nu om een enkele schuur gaat of om een compleet bedrijfsterrein — we pakken het in één hand aan, van aanvraag tot afvoer."
+              intro="Of het nu om een enkele schuur gaat of om een compleet bedrijfsterrein - we pakken het in één hand aan, van aanvraag tot afvoer."
             />
             <Link
               href="/diensten"
@@ -51,7 +51,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}
@@ -60,12 +60,12 @@ export default function HomePage() {
       </section>
 
       <section className="bg-steel-50">
-        <div className="mx-auto grid max-w-container gap-12 px-6 py-20 lg:grid-cols-[1.1fr_1fr] lg:py-24">
+        <div className="mx-auto grid max-w-container gap-10 px-5 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:py-24">
           <div>
             <SectionHeading
               eyebrow="Over ons"
               title="Een regionaal bedrijf met oog voor detail"
-              intro={`${company.name} is een klein, regionaal bedrijf, geworteld in ${company.region}. We zijn een hechte ploeg die sloopwerken, ruimingen en demontagewerkzaamheden uitvoert met een nuchtere, praktische aanpak.`}
+              intro={`${company.name} is een regionaal bedrijf, geworteld in ${company.region}. We zijn een hechte ploeg die sloopwerken, ruimingen en demontagewerkzaamheden uitvoert met een nuchtere, praktische aanpak.`}
             />
             <p className="mt-5 text-base leading-relaxed text-steel-700">
               We weten dat de meeste klussen niet alleen om kracht draaien,
@@ -81,7 +81,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-1">
             {valuePillars.map((pillar) => {
               const Icon = pillar.icon;
               return (
@@ -106,12 +106,12 @@ export default function HomePage() {
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-container px-6 py-20 lg:py-24">
+        <div className="mx-auto max-w-container px-5 py-14 sm:px-6 sm:py-20 lg:py-24">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
               eyebrow="Uitgelichte projecten"
               title="Recent uitgevoerd werk"
-              intro="Een greep uit de klussen waar we onlangs aan hebben gewerkt — verspreid over Goeree-Overflakkee."
+              intro="Een greep uit de klussen waar we onlangs aan hebben gewerkt - verspreid over Goeree-Overflakkee."
             />
             <Link
               href="/projecten"
@@ -122,7 +122,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
             {projects.slice(0, 3).map((project) => (
               <ProjectCard key={project.number} project={project} />
             ))}

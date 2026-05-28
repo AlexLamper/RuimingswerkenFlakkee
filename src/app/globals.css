@@ -15,3 +15,88 @@
     @apply bg-navy-900 text-white;
   }
 }
+
+@layer components {
+  /* Hero blueprint illustration */
+  .hero-build,
+  .hero-tractor,
+  .hero-arm,
+  .hero-dust {
+    opacity: 0;
+    animation: hero-fade-in 0.9s ease-out forwards;
+  }
+  .hero-build {
+    animation-delay: 0.2s;
+  }
+  .hero-tractor {
+    animation-delay: 0.55s;
+  }
+  .hero-arm {
+    animation-delay: 0.8s;
+  }
+  .hero-dust {
+    animation-delay: 1.2s;
+  }
+
+  .dust {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: hero-dust-rise 3.4s ease-out infinite;
+  }
+  .dust-1 {
+    animation-delay: 1.6s;
+  }
+  .dust-2 {
+    animation-delay: 2s;
+    animation-duration: 3.8s;
+  }
+  .dust-3 {
+    animation-delay: 2.4s;
+    animation-duration: 4.1s;
+  }
+  .dust-4 {
+    animation-delay: 2.8s;
+    animation-duration: 3.2s;
+  }
+  .dust-5 {
+    animation-delay: 3.2s;
+    animation-duration: 3.6s;
+  }
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-dust-rise {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-6px, -42px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-build,
+  .hero-tractor,
+  .hero-arm,
+  .hero-dust,
+  .dust {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

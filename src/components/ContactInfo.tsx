@@ -3,7 +3,7 @@ import { company } from "@/data/company";
 
 export function ContactInfo() {
   return (
-    <div className="border border-steel-200 bg-white p-7">
+    <div className="border border-steel-200 bg-white p-6 sm:p-7">
       <h2 className="text-xl font-semibold text-navy-900">Direct contact</h2>
       <p className="mt-2 text-sm leading-relaxed text-steel-600">
         Liever even bellen of mailen? Geen probleem. We staan u graag te woord.
@@ -29,14 +29,14 @@ export function ContactInfo() {
 
         <div className="flex items-start gap-3">
           <Mail className="mt-0.5 h-5 w-5 flex-none text-navy-700" aria-hidden />
-          <div>
+          <div className="min-w-0">
             <dt className="text-xs font-semibold uppercase tracking-wider text-steel-500">
               E-mail
             </dt>
             <dd className="mt-1">
               <a
                 href={company.emailHref}
-                className="text-base font-medium text-navy-900 hover:underline"
+                className="break-all text-base font-medium text-navy-900 hover:underline"
               >
                 {company.email}
               </a>
@@ -51,9 +51,7 @@ export function ContactInfo() {
               Vestiging
             </dt>
             <dd className="mt-1 text-base font-medium text-navy-900">
-              {company.address.street}
-              <br />
-              {company.address.postalCode} {company.address.city}
+              {company.location.postalCode} {company.location.city}
             </dd>
             <p className="mt-1 text-sm text-steel-600">
               Werkgebied: {company.region}
@@ -69,12 +67,18 @@ export function ContactInfo() {
             </dt>
             <dd className="mt-1 space-y-1 text-sm text-steel-700">
               {company.hours.map((h) => (
-                <div key={h.day} className="flex justify-between gap-4">
+                <div
+                  key={h.day}
+                  className="flex flex-wrap justify-between gap-x-4 gap-y-0.5"
+                >
                   <span>{h.day}</span>
                   <span className="font-medium text-navy-900">{h.time}</span>
                 </div>
               ))}
             </dd>
+            <p className="mt-3 text-xs leading-relaxed text-steel-600">
+              {company.hoursNote}
+            </p>
           </div>
         </div>
       </dl>

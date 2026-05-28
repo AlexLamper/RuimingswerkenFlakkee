@@ -16,13 +16,13 @@ export default function ProjectenPage() {
       <PageHeader
         eyebrow="Referenties"
         title="Recente projecten"
-        intro="Een greep uit het werk van de afgelopen tijd. Locatie, scope en resultaat — kort en feitelijk."
+        intro="Een greep uit het werk van de afgelopen tijd. Locatie, scope en resultaat - kort en feitelijk."
         crumbs={[{ label: "Home", href: "/" }, { label: "Projecten" }]}
       />
 
       <section className="bg-white">
-        <div className="mx-auto max-w-container px-6 py-16 lg:py-20">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto max-w-container px-5 py-12 sm:px-6 sm:py-16 lg:py-20">
+          <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
               <ProjectCard key={project.number} project={project} />
             ))}

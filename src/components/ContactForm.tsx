@@ -12,7 +12,7 @@
 //     body: JSON.stringify({ access_key: "JOUW_KEY", ...form }),
 //   });
 //
-// Dat is de hele wijziging — geen verdere setup nodig.
+// Dat is de hele wijziging - geen verdere setup nodig.
 
 import { Send } from "lucide-react";
 import { useState, type FormEvent } from "react";
@@ -42,7 +42,7 @@ export function ContactForm() {
     const body = [
       `Naam: ${form.name}`,
       `E-mail: ${form.email}`,
-      `Telefoon: ${form.phone || "—"}`,
+      `Telefoon: ${form.phone || "-"}`,
       "",
       "Bericht:",
       form.message,

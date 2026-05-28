@@ -14,7 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(company.url),
   title: {
-    default: `${company.name} — ${company.slogan}`,
+    default: `${company.name} - ${company.slogan}`,
     template: `%s | ${company.name}`,
   },
   description: company.tagline,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     locale: "nl_NL",
     url: company.url,
     siteName: company.name,
-    title: `${company.name} — ${company.slogan}`,
+    title: `${company.name} - ${company.slogan}`,
     description: company.tagline,
   },
   robots: {
