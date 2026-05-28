@@ -37,13 +37,12 @@ export default function OverOnsPage() {
             </h2>
             <div className="mt-5 space-y-5 text-base leading-relaxed text-steel-700">
               <p>
-                {company.name} is opgericht door zes vakmensen die elkaar
-                door de jaren heen leerden kennen op de werkvloer. Vrienden
-                inmiddels, maar ieder met een eigen achtergrond in bouw,
-                grondverzet, demontage of installatiewerk. Op een gegeven
-                moment kwam de vraag op tafel waarom we onze kennis en
-                ervaring niet zouden bundelen in één bedrijf - één
-                aanspreekpunt voor wat tot dan toe versnipperd geregeld werd.
+                {company.name} is opgericht door zes vrienden die samen
+                een bedrijf wilden beginnen. Ieder met een eigen achtergrond
+                in bouw, grondverzet, demontage of installatiewerk - bij
+                elkaar opgeteld een breed pakket aan kennis en ervaring,
+                gebundeld in één aanspreekpunt voor wat tot dan toe
+                versnipperd geregeld werd.
               </p>
               <p>
                 Dat plan hebben we doorgezet. Bewust op regionale schaal:
