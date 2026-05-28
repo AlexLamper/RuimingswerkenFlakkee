@@ -1,196 +1,66 @@
+import { ImageIcon } from "lucide-react";
+
+/**
+ * Hero afbeelding-placeholder.
+ *
+ * Vervang het binnenste placeholder-blok door een echte foto wanneer
+ * beschikbaar. Aanbevolen: ratio 4:5, minimaal 1200×1500 px, .webp of .jpg.
+ * Voorbeeld:
+ *
+ *   <Image
+ *     src="/foto/hero-sloop.jpg"
+ *     alt="Sloopwerken bedrijfspand Sommelsdijk"
+ *     fill
+ *     priority
+ *     className="object-cover"
+ *   />
+ */
 export function HeroVisual() {
   return (
-    <div className="relative" aria-hidden>
-      <svg
-        viewBox="0 0 520 420"
-        xmlns="http://www.w3.org/2000/svg"
-        className="hero-visual h-auto w-full"
-        role="img"
-      >
-        <defs>
-          <pattern
-            id="hero-grid"
-            width="26"
-            height="26"
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              d="M 26 0 L 0 0 0 26"
-              fill="none"
-              stroke="rgba(255,255,255,0.06)"
-              strokeWidth="1"
-            />
-          </pattern>
-        </defs>
-
-        <rect width="520" height="420" fill="url(#hero-grid)" />
-
-        <rect
-          x="14"
-          y="14"
-          width="492"
-          height="392"
-          fill="none"
-          stroke="rgba(255,255,255,0.18)"
-          strokeWidth="1"
-          strokeDasharray="4 5"
+    <figure className="relative" aria-hidden>
+      <div className="relative aspect-[4/5] w-full overflow-hidden border border-navy-700/60 bg-gradient-to-br from-navy-800 to-navy-950">
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.55) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(135deg, rgba(255,255,255,0.9) 0 1px, transparent 1px 12px)",
+          }}
         />
 
-        <g
-          fill="rgba(255,255,255,0.5)"
-          fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
-          fontSize="9"
-          letterSpacing="2"
-        >
-          <text x="28" y="34">WERKGEBIED</text>
-          <text x="492" y="34" textAnchor="end">REGIO 01</text>
-          <text x="28" y="402">GOEREE-OVERFLAKKEE</text>
-          <text x="492" y="402" textAnchor="end">SCHAAL 1:80K</text>
-        </g>
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+          <div className="flex h-16 w-16 items-center justify-center rounded-sm border border-steel-400/30 bg-navy-900/40">
+            <ImageIcon className="h-7 w-7 stroke-[1.25] text-steel-300" />
+          </div>
+          <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.3em] text-steel-200">
+            Hero afbeelding
+          </p>
+          <p className="mt-1.5 font-mono text-[10px] uppercase tracking-widest text-steel-500">
+            1200 × 1500 px
+          </p>
+        </div>
 
-        <g transform="translate(470 70)">
-          <circle
-            cx="0"
-            cy="0"
-            r="18"
-            fill="rgba(255,255,255,0.04)"
-            stroke="rgba(255,255,255,0.4)"
-            strokeWidth="1"
-          />
-          <path
-            d="M 0 -11 L 4 5 L 0 2 L -4 5 Z"
-            fill="white"
-            stroke="white"
-            strokeWidth="1"
-            strokeLinejoin="round"
-          />
-          <text
-            x="0"
-            y="-21"
-            textAnchor="middle"
-            fill="white"
-            fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
-            fontSize="9"
-            letterSpacing="2"
-          >
-            N
-          </text>
-        </g>
+        <div className="absolute left-4 top-4 inline-flex items-center gap-2 border border-steel-400/30 bg-navy-900/70 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-steel-200 backdrop-blur-sm">
+          <span className="h-1.5 w-1.5 rounded-full bg-white" />
+          Foto 01
+        </div>
 
-        <g className="map-island">
-          <path
-            d="M 70 220 C 70 192, 92 170, 132 162 C 174 154, 212 150, 232 150 L 232 134 L 268 134 L 268 150 C 304 154, 346 164, 390 180 C 432 196, 456 218, 454 240 C 450 262, 428 276, 396 282 C 354 288, 296 288, 236 282 C 178 278, 122 278, 96 268 C 76 258, 64 242, 70 220 Z"
-            fill="rgba(255,255,255,0.05)"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinejoin="round"
-          />
-          <line
-            x1="90"
-            y1="208"
-            x2="440"
-            y2="208"
-            stroke="rgba(255,255,255,0.1)"
-            strokeWidth="1"
-            strokeDasharray="2 6"
-          />
-          <line
-            x1="100"
-            y1="242"
-            x2="430"
-            y2="242"
-            stroke="rgba(255,255,255,0.1)"
-            strokeWidth="1"
-            strokeDasharray="2 6"
-          />
-        </g>
-
-        <g
-          className="map-markers"
-          fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
-          letterSpacing="1.5"
-        >
-          <g>
-            <circle cx="108" cy="200" r="3.5" fill="white" />
-            <text
-              x="108"
-              y="218"
-              textAnchor="middle"
-              fill="rgba(255,255,255,0.85)"
-              fontSize="10"
-            >
-              OUDDORP
-            </text>
-          </g>
-
-          <g>
-            <circle cx="248" cy="148" r="3.5" fill="white" />
-            <text
-              x="248"
-              y="124"
-              textAnchor="middle"
-              fill="rgba(255,255,255,0.85)"
-              fontSize="10"
-            >
-              STELLENDAM
-            </text>
-          </g>
-
-          <g>
-            <circle cx="395" cy="245" r="3.5" fill="white" />
-            <text
-              x="395"
-              y="263"
-              textAnchor="middle"
-              fill="rgba(255,255,255,0.85)"
-              fontSize="10"
-            >
-              OUDE-TONGE
-            </text>
-          </g>
-
-          <g>
-            <circle
-              className="map-pulse"
-              cx="282"
-              cy="222"
-              r="6"
-              fill="rgba(255,255,255,0.35)"
-              stroke="white"
-              strokeWidth="1"
-            />
-            <circle
-              cx="282"
-              cy="222"
-              r="7.5"
-              fill="none"
-              stroke="white"
-              strokeWidth="1.5"
-            />
-            <circle cx="282" cy="222" r="3.5" fill="white" />
-            <text
-              x="282"
-              y="245"
-              textAnchor="middle"
-              fill="white"
-              fontSize="10.5"
-              fontWeight="600"
-              letterSpacing="2.5"
-            >
-              MIDDELHARNIS
-            </text>
-          </g>
-        </g>
-
-        <g
-          stroke="rgba(255,255,255,0.25)"
-          strokeWidth="1"
-          strokeDasharray="2 4"
-          fill="none"
-        >
-          <line x1="14" y1="380" x2="506" y2="380" />
-        </g>
-      </svg>
-    </div>
+        <div className="absolute inset-x-0 bottom-0 border-t border-steel-400/25 bg-navy-950/85 px-4 py-3 backdrop-blur-sm">
+          <p className="text-xs font-semibold tracking-tight text-white">
+            Sloop bedrijfspand
+          </p>
+          <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-steel-300">
+            Sommelsdijk · 2025
+          </p>
+        </div>
+      </div>
+    </figure>
   );
 }
