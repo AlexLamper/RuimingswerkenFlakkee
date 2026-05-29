@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { JsonLd } from "./JsonLd";
+import { breadcrumbSchema } from "@/lib/structured-data";
 
 type Crumb = {
   label: string;
@@ -17,6 +19,9 @@ export function PageHeader({ eyebrow, title, intro, crumbs }: Props) {
   return (
     <section className="border-b border-steel-200 bg-navy-900 text-white">
       <div className="mx-auto max-w-container px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
+        {crumbs && crumbs.length > 0 && (
+          <JsonLd data={breadcrumbSchema(crumbs)} />
+        )}
         {crumbs && crumbs.length > 0 && (
           <nav aria-label="Kruimelpad" className="mb-5 text-xs text-steel-300 sm:mb-6">
             <ol className="flex flex-wrap items-center gap-1.5">

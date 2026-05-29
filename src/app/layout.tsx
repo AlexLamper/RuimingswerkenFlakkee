@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
 import { company } from "@/data/company";
+import { siteGraph } from "@/lib/structured-data";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,40 +13,84 @@ const inter = Inter({
   display: "swap",
 });
 
+const TITLE_DEFAULT =
+  "Sloopbedrijf Goeree-Overflakkee | Sloop, Ruiming & Demontage";
+
 export const metadata: Metadata = {
   metadataBase: new URL(company.url),
   title: {
-    default: `${company.name} - ${company.slogan}`,
-    template: `%s | ${company.name}`,
+    default: TITLE_DEFAULT,
+    template: "%s | Ruimingswerken Flakkee",
   },
-  description: company.tagline,
-  applicationName: company.name,
+  description: company.description,
+  applicationName: company.legalName,
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
-    "sloop",
-    "ruiming",
-    "demontage",
-    "ontruiming",
-    "Goeree-Overflakkee",
-    "Middelharnis",
-    "Sommelsdijk",
-    "Ouddorp",
-    "Goedereede",
-    "betonsloop",
-    "terreinsanering",
+    "sloopbedrijf Goeree-Overflakkee",
+    "sloopbedrijf in de buurt",
+    "sloopbedrijf Flakkee",
+    "ruimingswerken Flakkee",
+    "ruimingsbedrijf Goeree-Overflakkee",
+    "sloopwerken Goeree-Overflakkee",
+    "sloper Goeree-Overflakkee",
+    "slopen Middelharnis",
+    "sloopbedrijf Middelharnis",
+    "ontruiming Goeree-Overflakkee",
+    "woningontruiming Flakkee",
+    "bedrijfsontruiming Goeree-Overflakkee",
+    "demontage Goeree-Overflakkee",
+    "betonsloop Goeree-Overflakkee",
+    "betonvloer verwijderen",
+    "terreinsanering Goeree-Overflakkee",
+    "schuur slopen Flakkee",
+    "afvoer sloopafval Flakkee",
+    "sloopbedrijf Ouddorp",
+    "sloopbedrijf Dirksland",
+    "sloopbedrijf Sommelsdijk",
+    "sloopbedrijf Oude-Tonge",
+    "sloopbedrijf Stellendam",
+    "sloop en ruiming Zuid-Holland",
   ],
-  authors: [{ name: company.name }],
+  authors: [{ name: company.legalName }],
+  creator: company.legalName,
+  publisher: company.legalName,
+  category: "Sloop en ruimingswerken",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
   openGraph: {
     type: "website",
     locale: "nl_NL",
     url: company.url,
-    siteName: company.name,
-    title: `${company.name} - ${company.slogan}`,
-    description: company.tagline,
+    siteName: company.legalName,
+    title: TITLE_DEFAULT,
+    description: company.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE_DEFAULT,
+    description: company.description,
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+  // Zet GOOGLE_SITE_VERIFICATION in je environment om de Search Console
+  // HTML-tag te activeren (alternatief voor DNS- of bestandsverificatie).
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export const viewport: Viewport = {
@@ -72,6 +118,7 @@ export default function RootLayout({
         </noscript>
       </head>
       <body className="flex min-h-screen flex-col font-sans">
+        <JsonLd data={siteGraph()} />
         <Header />
         <main id="main" className="flex-1">
           {children}

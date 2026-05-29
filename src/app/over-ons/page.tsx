@@ -7,8 +7,15 @@ import { TrustBar } from "@/components/TrustBar";
 import { company } from "@/data/company";
 
 export const metadata: Metadata = {
-  title: "Over ons",
-  description: `Maak kennis met ${company.name} - een regionaal sloop- en ruimingsbedrijf op Goeree-Overflakkee dat staat voor veilig, vakkundig en netjes werk.`,
+  title: "Over ons: regionaal sloopbedrijf op Goeree-Overflakkee",
+  description: `Maak kennis met ${company.legalName} - een regionaal sloop- en ruimingsbedrijf op Goeree-Overflakkee dat staat voor veilig, vakkundig en netjes werk.`,
+  alternates: { canonical: "/over-ons" },
+  openGraph: {
+    title: "Over ons - regionaal sloop- en ruimingsbedrijf op Goeree-Overflakkee",
+    description:
+      "Een hecht, regionaal team dat sloop, ruiming en demontage op Goeree-Overflakkee uitvoert - nuchter, veilig en netjes.",
+    url: "/over-ons",
+  },
 };
 
 const values = [

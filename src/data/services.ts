@@ -22,7 +22,7 @@ export const services: Service[] = [
     title: "Sloopwerken",
     short:
       "Compleet of selectief slopen van woningen, schuren en bedrijfspanden - netjes en volgens de regels.",
-    long: "Van een enkele bijgebouw tot een volledig pand: we slopen veilig, gefaseerd en met respect voor de omgeving. Inclusief asbestinventarisatie indien nodig en correcte afvoer van alle stromen.",
+    long: "Van een enkele bijgebouw tot een volledig pand: we slopen veilig, gefaseerd en met respect voor de omgeving. Alle vrijkomende stromen voeren we correct en gescheiden af.",
     icon: Hammer,
   },
   {

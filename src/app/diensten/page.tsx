@@ -6,9 +6,16 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
-  title: "Diensten",
+  title: "Diensten: sloopwerken, demontage & ruiming",
   description:
-    "Sloopwerken, demontage, ontruimingen, beton en constructiesloop, terreinsanering en gescheiden afvoer - uitgevoerd door RuimingswerkenFlakkee op Goeree-Overflakkee.",
+    "Sloopwerken, demontage, ontruimingen, beton- en constructiesloop, terreinsanering en gescheiden afvoer op Goeree-Overflakkee. Alles in één hand, vrijblijvende offerte.",
+  alternates: { canonical: "/diensten" },
+  openGraph: {
+    title: "Diensten: sloopwerken, demontage & ruiming op Goeree-Overflakkee",
+    description:
+      "Het volledige pakket sloop- en ruimingswerkzaamheden op Goeree-Overflakkee - van schouw tot bezemschone oplevering.",
+    url: "/diensten",
+  },
 };
 
 const process = [

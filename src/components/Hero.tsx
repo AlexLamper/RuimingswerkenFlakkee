@@ -25,9 +25,10 @@ export function Hero() {
             Ruimingswerken Flakkee
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-steel-200 sm:text-lg lg:text-lg">
-            Sloop, ruiming, demontage en ontruiming - uitgevoerd door een
-            ervaren team dat zijn werk netjes en volgens afspraak oplevert.
-            Van een enkele schuur tot een compleet bedrijfspand.
+            Uw sloopbedrijf op Goeree-Overflakkee voor sloop, ruiming, demontage
+            en ontruiming - uitgevoerd door een ervaren team dat zijn werk netjes
+            en volgens afspraak oplevert. Van een enkele schuur tot een compleet
+            bedrijfspand.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row">

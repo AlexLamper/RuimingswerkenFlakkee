@@ -6,8 +6,15 @@ import { Reveal } from "@/components/Reveal";
 import { company } from "@/data/company";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: `Neem contact op met ${company.name} voor een vrijblijvende offerte. Bereikbaar per telefoon, e-mail of via het contactformulier.`,
+  title: "Contact & offerte aanvragen op Goeree-Overflakkee",
+  description: `Neem contact op met ${company.legalName} voor een vrijblijvende offerte voor sloop, ruiming of demontage op Goeree-Overflakkee. Bereikbaar per telefoon, e-mail of via het contactformulier.`,
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact & vrijblijvende offerte - Ruimingswerken Flakkee",
+    description:
+      "Vraag vrijblijvend een offerte aan voor sloop, ruiming, ontruiming of demontage op Goeree-Overflakkee. We reageren doorgaans binnen één werkdag.",
+    url: "/contact",
+  },
 };
 
 export default function ContactPage() {

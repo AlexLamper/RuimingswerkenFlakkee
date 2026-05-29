@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, Users, Wrench } from "lucide-react";
 import { CTASection } from "@/components/CTASection";
+import { Faq } from "@/components/Faq";
 import { Hero } from "@/components/Hero";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+import { ServiceArea } from "@/components/ServiceArea";
 import { ServiceCard } from "@/components/ServiceCard";
 import { TrustBar } from "@/components/TrustBar";
 import { company } from "@/data/company";
@@ -141,6 +143,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ServiceArea />
+
+      <Faq />
 
       <CTASection />
     </>

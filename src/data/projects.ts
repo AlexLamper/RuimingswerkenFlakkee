@@ -14,7 +14,7 @@ export const projects: Project[] = [
     location: "Middelharnis",
     scope: "Sloopwerken",
     description:
-      "Vrijstaande houten schuur van circa 90 m² met asbesthoudende golfplaten gesloopt. Stromen gescheiden afgevoerd, fundering verwijderd.",
+      "Vrijstaande houten schuur van circa 90 m² compleet gesloopt. Stromen gescheiden afgevoerd, fundering verwijderd.",
     result: "Erf bezemschoon opgeleverd binnen drie werkdagen.",
   },
   {

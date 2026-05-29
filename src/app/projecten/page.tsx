@@ -6,9 +6,16 @@ import { Reveal } from "@/components/Reveal";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Projecten",
+  title: "Projecten: uitgevoerd sloop- & ruimingswerk",
   description:
-    "Een selectie van recent uitgevoerde sloop-, ontruimings- en demontageprojecten van RuimingswerkenFlakkee op Goeree-Overflakkee.",
+    "Recent uitgevoerde sloop-, ontruimings- en demontageprojecten op Goeree-Overflakkee - in Middelharnis, Sommelsdijk, Goedereede, Ouddorp, Stellendam en omgeving.",
+  alternates: { canonical: "/projecten" },
+  openGraph: {
+    title: "Projecten - uitgevoerd sloop- en ruimingswerk op Goeree-Overflakkee",
+    description:
+      "Een greep uit recent uitgevoerde klussen op Goeree-Overflakkee: sloop, ontruiming, betonsloop, demontage en terreinsanering.",
+    url: "/projecten",
+  },
 };
 
 export default function ProjectenPage() {
