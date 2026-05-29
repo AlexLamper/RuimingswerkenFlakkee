@@ -15,10 +15,11 @@ export function Faq() {
             eyebrow="Veelgestelde vragen"
             title="Veelgestelde vragen over sloop en ruiming"
             intro="De vragen die we het vaakst krijgen over werken op Goeree-Overflakkee. Staat uw vraag er niet bij? Neem gerust contact op."
+            align="center"
           />
         </Reveal>
 
-        <dl className="mx-auto mt-10 max-w-3xl divide-y divide-steel-200 border-y border-steel-200">
+        <dl className="mx-auto mt-10 max-w-3xl divide-y divide-steel-200 border-y border-steel-200 text-center">
           {faqs.map((faq, i) => (
             <Reveal key={faq.question} delay={i * 60}>
               <div className="py-6">
