@@ -22,7 +22,7 @@ export function Hero() {
             Vakwerk op Goeree-Overflakkee
           </span>
           <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.5rem] xl:text-6xl">
-            Ruimingswerken, Flakkee
+            Ruimingswerken Flakkee
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-steel-200 sm:text-lg lg:text-lg">
             Sloop, ruiming, demontage en ontruiming - uitgevoerd door een

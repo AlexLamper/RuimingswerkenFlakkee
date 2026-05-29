@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { company } from "@/data/company";
@@ -11,12 +12,13 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <span
-                aria-hidden
-                className="flex h-10 w-10 items-center justify-center rounded-sm bg-white text-sm font-bold tracking-tight text-navy-900"
-              >
-                RF
-              </span>
+              <Image
+                src="/logo/logo1-rf/logo-white.png"
+                alt="Ruimingswerken Flakkee"
+                width={512}
+                height={307}
+                className="h-10 w-auto"
+              />
               <span className="flex flex-col leading-tight">
                 <span className="text-base font-semibold uppercase tracking-wide text-white">
                   Ruimingswerken

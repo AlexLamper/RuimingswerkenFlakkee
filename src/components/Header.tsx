@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -45,12 +46,14 @@ export function Header() {
           className="flex items-center gap-3"
           onClick={() => setOpen(false)}
         >
-          <span
-            aria-hidden
-            className="flex h-10 w-10 items-center justify-center rounded-sm bg-navy-900 text-sm font-bold tracking-tight text-white"
-          >
-            RF
-          </span>
+          <Image
+            src="/logo/logo1-rf/logo.png"
+            alt="Ruimingswerken Flakkee"
+            width={512}
+            height={307}
+            priority
+            className="h-9 w-auto lg:h-11"
+          />
           <span className="flex flex-col leading-tight">
             <span className="text-base font-semibold uppercase tracking-wide text-navy-900 lg:text-lg">
               Ruimingswerken
