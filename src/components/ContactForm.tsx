@@ -1,33 +1,37 @@
 "use client";
 
-// Echte, gratis bezorging van het contactformulier via Web3Forms
-// (https://web3forms.com) - geen backend of serverkosten nodig.
-//
-// EENMALIGE SETUP (gratis, ~1 minuut):
-//   1. Ga naar https://web3forms.com en vul je ontvang-e-mailadres in.
-//   2. Je krijgt direct een "access key" in je mailbox.
-//   3. Zet die key in je environment als NEXT_PUBLIC_WEB3FORMS_KEY
-//      (lokaal in .env.local en bij je hosting-provider). Zie .env.example.
-//
-// Zonder key valt het formulier automatisch terug op het openen van de
-// mailclient van de bezoeker, zodat het nooit stuk is.
+// Bezorging via Web3Forms, rechtstreeks vanuit de browser (hun gratis plan
+// staat alleen client-side submits toe). De access key is bedoeld om publiek
+// te zijn - zie https://web3forms.com. Inzendingen komen binnen op het
+// e-mailadres dat aan de key gekoppeld is.
 
 import { Loader2, Send } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { company } from "@/data/company";
 
-const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+const WEB3FORMS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY ??
+  "ce39f9fb-6064-48a2-8c4a-997317ecd14b";
+
+type RequestType = "offerte" | "vraag";
 
 type FormState = {
+  type: RequestType;
   name: string;
-  email: string;
   phone: string;
+  email: string;
   message: string;
 };
 
 type Status = "idle" | "sending" | "success" | "error";
 
-const empty: FormState = { name: "", email: "", phone: "", message: "" };
+const empty: FormState = {
+  type: "offerte",
+  name: "",
+  phone: "",
+  email: "",
+  message: "",
+};
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(empty);
@@ -41,39 +45,18 @@ export function ContactForm() {
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
       setForm((prev) => ({ ...prev, [key]: e.target.value }));
 
-  const subject = () => `Offerteaanvraag van ${form.name || "website-bezoeker"}`;
-
-  const openMailClient = () => {
-    const body = [
-      `Naam: ${form.name}`,
-      `E-mail: ${form.email}`,
-      `Telefoon: ${form.phone || "-"}`,
-      "",
-      "Bericht:",
-      form.message,
-    ].join("\n");
-    const mailto = `${company.emailHref}?subject=${encodeURIComponent(
-      subject(),
-    )}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setStatus("success");
-  };
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    // Spam: honeypot ingevuld -> doe alsof het gelukt is, verstuur niets.
+    // Honeypot ingevuld -> doe alsof het gelukt is, verstuur niets.
     if (botField) {
       setStatus("success");
       setForm(empty);
       return;
     }
 
-    // Geen key geconfigureerd -> nette terugval op de mailclient.
-    if (!ACCESS_KEY) {
-      openMailClient();
-      return;
-    }
+    const onderwerp =
+      form.type === "offerte" ? "Offerte aanvragen" : "Algemene vraag";
 
     setStatus("sending");
     setErrorMsg(null);
@@ -85,27 +68,34 @@ export function ContactForm() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: ACCESS_KEY,
-          subject: subject(),
+          access_key: WEB3FORMS_KEY,
+          subject: `${onderwerp} - ${form.name}`,
           from_name: `${company.legalName} - website`,
+          onderwerp,
           name: form.name,
-          email: form.email,
           telefoon: form.phone || "-",
-          message: form.message,
+          // E-mail alleen meesturen als ingevuld (geldige reply-to).
+          ...(form.email ? { email: form.email } : {}),
+          bericht: form.message || "-",
         }),
       });
-      const data = (await res.json()) as { success: boolean; message?: string };
-      if (data.success) {
+
+      const data = (await res.json().catch(() => null)) as
+        | { success?: boolean }
+        | null;
+
+      if (res.ok && data?.success) {
         setStatus("success");
         setForm(empty);
-      } else {
-        setStatus("error");
-        setErrorMsg(data.message ?? "Er ging iets mis bij het verzenden.");
+        return;
       }
+
+      setStatus("error");
+      setErrorMsg("Er ging iets mis bij het verzenden.");
     } catch {
       setStatus("error");
       setErrorMsg(
-        "Verzenden is niet gelukt. Controleer uw internetverbinding of bel ons gerust.",
+        "Verzenden is niet gelukt. Controleer uw internetverbinding en probeer het opnieuw.",
       );
     }
   };
@@ -118,13 +108,52 @@ export function ContactForm() {
       className="border border-steel-200 bg-white p-7"
       aria-label="Contactformulier"
     >
-      <h2 className="text-xl font-semibold text-navy-900">Stuur een bericht</h2>
+      <h2 className="text-xl font-semibold text-navy-900">Laat iets van u horen</h2>
       <p className="mt-2 text-sm leading-relaxed text-steel-600">
-        Vul het formulier in en wij nemen zo snel mogelijk contact met u op -
-        doorgaans binnen één werkdag.
+        Laat uw naam en telefoonnummer achter, dan bellen we u terug -
+        doorgaans binnen één werkdag. Een bericht erbij mag, hoeft niet.
       </p>
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+      <fieldset className="mt-6">
+        <legend className="text-xs font-semibold uppercase tracking-wider text-steel-600">
+          Waarvoor neemt u contact op?
+        </legend>
+        <div className="mt-2 grid grid-cols-2 gap-2">
+          {(
+            [
+              { value: "offerte", label: "Offerte aanvragen" },
+              { value: "vraag", label: "Algemene vraag" },
+            ] as const
+          ).map((opt) => {
+            const active = form.type === opt.value;
+            return (
+              <label
+                key={opt.value}
+                className={`flex cursor-pointer items-center justify-center rounded-sm border px-3 py-2.5 text-sm font-medium transition-colors ${
+                  active
+                    ? "border-navy-900 bg-navy-900 text-white"
+                    : "border-steel-300 bg-white text-steel-700 hover:border-navy-700"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="type"
+                  value={opt.value}
+                  checked={active}
+                  onChange={() =>
+                    setForm((prev) => ({ ...prev, type: opt.value }))
+                  }
+                  disabled={sending}
+                  className="sr-only"
+                />
+                {opt.label}
+              </label>
+            );
+          })}
+        </div>
+      </fieldset>
+
+      <div className="mt-4 grid gap-4 sm:grid-cols-2">
         <Field
           id="name"
           label="Naam"
@@ -134,31 +163,34 @@ export function ContactForm() {
           disabled={sending}
         />
         <Field
-          id="email"
-          label="E-mail"
-          type="email"
+          id="phone"
+          label="Telefoon"
+          type="tel"
           required
-          value={form.email}
-          onChange={update("email")}
+          value={form.phone}
+          onChange={update("phone")}
           disabled={sending}
         />
         <Field
-          id="phone"
-          label="Telefoon (optioneel)"
-          type="tel"
-          value={form.phone}
-          onChange={update("phone")}
+          id="email"
+          label="E-mail (optioneel)"
+          type="email"
+          value={form.email}
+          onChange={update("email")}
           className="sm:col-span-2"
           disabled={sending}
         />
         <TextareaField
           id="message"
-          label="Bericht"
-          required
-          rows={5}
+          label="Bericht (optioneel)"
+          rows={4}
           value={form.message}
           onChange={update("message")}
-          placeholder="Beschrijf kort het werk: locatie, omvang en gewenste planning."
+          placeholder={
+            form.type === "offerte"
+              ? "Kort over het werk: locatie, omvang en gewenste planning."
+              : "Waar kunnen we u mee helpen?"
+          }
           className="sm:col-span-2"
           disabled={sending}
         />
@@ -201,9 +233,8 @@ export function ContactForm() {
           role="status"
           className="mt-4 border border-navy-200 bg-navy-50 px-4 py-3 text-sm text-navy-900"
         >
-          {ACCESS_KEY
-            ? "Bedankt! Uw bericht is verzonden. We nemen zo snel mogelijk contact met u op."
-            : "Uw mailprogramma is geopend met het bericht. Klik daar nog op “verzenden” om het naar ons te sturen."}
+          Bedankt! Uw bericht is verzonden. We nemen zo snel mogelijk contact
+          met u op.
         </p>
       )}
 
@@ -213,8 +244,8 @@ export function ContactForm() {
           className="mt-4 border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
         >
           {errorMsg}{" "}
-          <a href={company.phoneHref} className="font-semibold underline">
-            Of bel {company.phone}
+          <a href={company.emailHref} className="font-semibold underline">
+            Of mail ons direct
           </a>
           .
         </p>

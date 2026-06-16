@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 import { company } from "@/data/company";
 import { Reveal } from "./Reveal";
 
@@ -29,11 +29,11 @@ export function CTASection({
                 Offerte aanvragen
               </Link>
               <a
-                href={company.phoneHref}
+                href={company.emailHref}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-sm border border-steel-400/40 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-800 sm:w-auto"
               >
-                <Phone className="h-4 w-4" aria-hidden />
-                {company.phone}
+                <Mail className="h-4 w-4" aria-hidden />
+                Mail ons
               </a>
             </div>
           </div>

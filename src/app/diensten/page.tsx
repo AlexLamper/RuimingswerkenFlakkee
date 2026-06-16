@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { AlertTriangle, Check } from "lucide-react";
 import { CTASection } from "@/components/CTASection";
 import { PageHeader } from "@/components/PageHeader";
 import { Reveal } from "@/components/Reveal";
 import { ServiceCard } from "@/components/ServiceCard";
+import { company } from "@/data/company";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
@@ -46,20 +48,86 @@ export default function DienstenPage() {
     <>
       <PageHeader
         eyebrow="Wat wij doen"
-        title="Onze diensten"
-        intro="Een volledig pakket aan sloop- en ruimingswerkzaamheden. Alles in één hand: van eerste schouw tot bezemschone oplevering."
+        title="Waar we mee kunnen helpen"
+        intro="Een paar extra handen voor de klussen die blijven liggen: slopen, demonteren, leeghalen en opruimen. We zijn er vooral voor het kleinere sloop- en opruimwerk - daar staan we voor u klaar."
         crumbs={[{ label: "Home", href: "/" }, { label: "Diensten" }]}
       />
 
       <section className="bg-white">
         <div className="mx-auto max-w-container px-5 py-12 sm:px-6 sm:py-16 lg:py-20">
-          <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-12">
+            <Reveal>
+              <h2 className="text-2xl font-bold tracking-tight text-navy-900 md:text-3xl">
+                Extra handen voor de klussen die blijven liggen
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-steel-700">
+                Niet voor het grote sloopwerk, wél voor alles eromheen: een
+                binnenwand of tegelvloer eruit, een schuurtje afbreken, een
+                woning of garage leeghalen of een tuin opruimen. U belt of mailt,
+                wij komen kijken en pakken aan - netjes en voor een eerlijke prijs.
+              </p>
+              <ul className="mt-5 flex flex-wrap gap-2.5">
+                {["Particulieren", "Agrariërs", "Bedrijven", "Verhuur & beheer"].map(
+                  (who) => (
+                    <li
+                      key={who}
+                      className="inline-flex items-center rounded-sm border border-steel-200 bg-steel-50 px-3 py-1.5 text-sm font-medium text-navy-900"
+                    >
+                      {who}
+                    </li>
+                  ),
+                )}
+              </ul>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="border-l-2 border-navy-900 bg-steel-50 p-6">
+                <p className="text-sm font-semibold uppercase tracking-wider text-navy-700">
+                  Goed om te weten
+                </p>
+                <ul className="mt-4 space-y-3 text-sm leading-relaxed text-steel-700">
+                  <li className="flex gap-2.5">
+                    <Check className="mt-0.5 h-4 w-4 flex-none text-navy-700" aria-hidden />
+                    Vrijblijvende offerte binnen 48 uur
+                  </li>
+                  <li className="flex gap-2.5">
+                    <Check className="mt-0.5 h-4 w-4 flex-none text-navy-700" aria-hidden />
+                    Eén vast aanspreekpunt van begin tot eind
+                  </li>
+                  <li className="flex gap-2.5">
+                    <Check className="mt-0.5 h-4 w-4 flex-none text-navy-700" aria-hidden />
+                    Puin en afval voeren we netjes voor u af
+                  </li>
+                  <li className="flex gap-2.5">
+                    <Check className="mt-0.5 h-4 w-4 flex-none text-navy-700" aria-hidden />
+                    Goedkoopste van Flakkee - betaalbaar en eerlijk
+                  </li>
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:mt-16">
             {services.map((service, i) => (
               <Reveal key={service.slug} delay={i * 70} className="h-full">
                 <ServiceCard service={service} variant="detailed" />
               </Reveal>
             ))}
           </div>
+
+          <Reveal>
+            <div className="mt-8 flex items-start gap-3 border-l-2 border-navy-900 bg-steel-50 p-5 sm:mt-10">
+              <AlertTriangle
+                className="mt-0.5 h-5 w-5 flex-none text-navy-700"
+                aria-hidden
+              />
+              <p className="text-sm leading-relaxed text-steel-700">
+                <span className="font-semibold text-navy-900">
+                  Geen asbest.
+                </span>{" "}
+                {company.noAsbestos}
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 

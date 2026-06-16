@@ -28,6 +28,11 @@ export const faqs: Faq[] = [
   {
     question: "Doen jullie ook kleine klussen voor particulieren?",
     answer:
-      "Zeker. Van één bijgebouw of een betonvloer in huis tot een complete bedrijfsontruiming - groot en klein zijn allebei welkom. We werken voor particulieren, agrariërs, bedrijven en projectontwikkelaars.",
+      "Zeker. Van één bijgebouw of een betonvloer in huis tot een complete bedrijfsontruiming - groot en klein zijn allebei welkom. We zien onszelf als extra handjes die bijspringen waar het nodig is, voor een eerlijke prijs. We werken voor particulieren, agrariërs, bedrijven en projectontwikkelaars.",
+  },
+  {
+    question: "Werken jullie ook met asbest?",
+    answer:
+      "Nee. Klussen met asbest nemen wij bewust niet aan. Asbest verwijderen is wettelijk voorbehouden aan gecertificeerde bedrijven en daar zijn wij niet voor uitgerust. Komen we asbest tegen of vermoedt u dat het aanwezig is, dan zijn we daar eerlijk over en verwijzen we u door naar een gespecialiseerd asbestbedrijf.",
   },
 ];

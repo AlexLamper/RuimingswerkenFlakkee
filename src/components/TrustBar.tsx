@@ -2,9 +2,9 @@ import { CheckCircle2 } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const points = [
-  "Ervaren in sloop- en ruimingswerken op Goeree-Overflakkee",
-  "Veilig werken volgens geldende normen",
-  "Stromen gescheiden afgevoerd naar erkende verwerkers",
+  "Goedkoopste van Flakkee",
+  "Snel geregeld - vaak op korte termijn op locatie",
+  "Persoonlijk: één vast aanspreekpunt, korte lijnen",
   "Vrijblijvende offerte binnen 48 uur",
 ];
 

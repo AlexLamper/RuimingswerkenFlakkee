@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, Users, Wrench } from "lucide-react";
+import { ArrowRight, HandHelping, ShieldCheck, Wallet } from "lucide-react";
 import { CTASection } from "@/components/CTASection";
 import { Faq } from "@/components/Faq";
 import { Hero } from "@/components/Hero";
@@ -8,6 +8,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceArea } from "@/components/ServiceArea";
 import { ServiceCard } from "@/components/ServiceCard";
+import { TeamPhoto } from "@/components/TeamPhoto";
 import { TrustBar } from "@/components/TrustBar";
 import { company } from "@/data/company";
 import { projects } from "@/data/projects";
@@ -15,19 +16,19 @@ import { services } from "@/data/services";
 
 const valuePillars = [
   {
+    icon: Wallet,
+    title: "Betaalbaar",
+    text: "Extra handjes voor een eerlijke prijs - geen dure tussenpartij, gewoon aanpakken.",
+  },
+  {
+    icon: HandHelping,
+    title: "De helpende hand",
+    text: "Een jong, gedreven team dat bijspringt waar het nodig is. Groot of klein, alles welkom.",
+  },
+  {
     icon: ShieldCheck,
-    title: "Veilig",
-    text: "Werken volgens geldende normen, met aandacht voor omgeving en omwonenden.",
-  },
-  {
-    icon: Wrench,
-    title: "Vakkundig",
-    text: "Ervaren team met het juiste materieel - van compactgraver tot grijper.",
-  },
-  {
-    icon: Users,
-    title: "Persoonlijk",
-    text: "Eén aanspreekpunt, korte lijnen en heldere afspraken - van offerte tot oplevering.",
+    title: "Netjes & eerlijk",
+    text: "We werken veilig, leveren bezemschoon op en zijn eerlijk over wat we wel en niet doen.",
   },
 ];
 
@@ -37,14 +38,58 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
 
+      {/* Uitnodigende kennismaking met het team */}
+      <section className="bg-white">
+        <div className="mx-auto grid max-w-container gap-10 px-5 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-14 lg:py-24">
+          <Reveal>
+            <div className="overflow-hidden border border-steel-200">
+              <TeamPhoto />
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <SectionHeading
+              eyebrow="Wie zijn wij"
+              title="Een stel jonge gasten dat de handen uit de mouwen steekt"
+              intro={`${company.name} is opgezet door een groep jonge, gedreven gasten van Goeree-Overflakkee die graag aanpakken en zo een eigen bedrijfje opbouwen. Zie ons als de helpende hand: betaalbare, extra handjes voor sloop, ruiming en alles wat geruimd of opgeknapt moet worden.`}
+            />
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              {valuePillars.map((pillar) => {
+                const Icon = pillar.icon;
+                return (
+                  <div
+                    key={pillar.title}
+                    className="flex h-full flex-col border border-steel-200 bg-white p-5"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-navy-900 text-white">
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </div>
+                    <h3 className="mt-3 text-sm font-semibold text-navy-900">
+                      {pillar.title}
+                    </h3>
+                    <p className="mt-1.5 text-xs leading-relaxed text-steel-600">
+                      {pillar.text}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="mt-6 border-l-2 border-navy-900 bg-steel-50 px-4 py-3 text-sm leading-relaxed text-steel-700">
+              <span className="font-semibold text-navy-900">Let op:</span>{" "}
+              {company.noAsbestos}
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="bg-white">
         <div className="mx-auto max-w-container px-5 py-14 sm:px-6 sm:py-20 lg:py-24">
           <Reveal>
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <SectionHeading
                 eyebrow="Onze diensten"
-                title="Sloop, ruiming en alles daartussen"
-                intro="Of het nu om een enkele schuur gaat of om een compleet bedrijfsterrein - we pakken het in één hand aan, van aanvraag tot afvoer."
+                title="Waar we mee kunnen helpen"
+                intro="Denk aan een verbouwing, iets slopen, demonteren of een flinke opruiming - wij springen bij met extra handen. Vooral het kleinere sloop- en opruimwerk is precies ons ding."
               />
               <Link
                 href="/diensten"
@@ -67,62 +112,13 @@ export default function HomePage() {
       </section>
 
       <section className="bg-steel-50">
-        <div className="mx-auto grid max-w-container gap-10 px-5 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:py-24">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Over ons"
-              title="Een regionaal bedrijf met oog voor detail"
-              intro={`${company.name} is een regionaal bedrijf, geworteld in ${company.region}. We zijn een hechte ploeg die sloopwerken, ruimingen en demontagewerkzaamheden uitvoert met een nuchtere, praktische aanpak.`}
-            />
-            <p className="mt-5 text-base leading-relaxed text-steel-700">
-              We weten dat de meeste klussen niet alleen om kracht draaien,
-              maar ook om netjes werken: de omgeving netjes achterlaten,
-              afspraken nakomen en helder communiceren. Daar staan we voor.
-            </p>
-            <Link
-              href="/over-ons"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-navy-900 hover:underline"
-            >
-              Lees meer over ons
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </Link>
-          </Reveal>
-
-          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-1">
-            {valuePillars.map((pillar, i) => {
-              const Icon = pillar.icon;
-              return (
-                <Reveal
-                  key={pillar.title}
-                  delay={i * 100}
-                  className="h-full"
-                >
-                  <div className="flex h-full flex-col border border-steel-200 bg-white p-6">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-navy-900 text-white">
-                      <Icon className="h-5 w-5" aria-hidden />
-                    </div>
-                    <h3 className="mt-4 text-base font-semibold text-navy-900">
-                      {pillar.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-steel-600">
-                      {pillar.text}
-                    </p>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white">
         <div className="mx-auto max-w-container px-5 py-14 sm:px-6 sm:py-20 lg:py-24">
           <Reveal>
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <SectionHeading
                 eyebrow="Uitgelichte projecten"
                 title="Recent uitgevoerd werk"
-                intro="Een greep uit de klussen waar we onlangs aan hebben gewerkt - verspreid over Goeree-Overflakkee."
+                intro="Een paar klussen waar we onlangs onze handen uit de mouwen hebben gestoken. Klik door voor meer foto's."
               />
               <Link
                 href="/projecten"
@@ -136,7 +132,7 @@ export default function HomePage() {
 
           <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
             {projects.slice(0, 3).map((project, i) => (
-              <Reveal key={project.number} delay={i * 90} className="h-full">
+              <Reveal key={project.slug} delay={i * 90} className="h-full">
                 <ProjectCard project={project} />
               </Reveal>
             ))}

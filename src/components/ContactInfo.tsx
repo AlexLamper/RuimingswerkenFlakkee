@@ -1,4 +1,4 @@
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin } from "lucide-react";
 import { company } from "@/data/company";
 
 export function ContactInfo() {
@@ -6,27 +6,11 @@ export function ContactInfo() {
     <div className="border border-steel-200 bg-white p-6 sm:p-7">
       <h2 className="text-xl font-semibold text-navy-900">Direct contact</h2>
       <p className="mt-2 text-sm leading-relaxed text-steel-600">
-        Liever even bellen of mailen? Geen probleem. We staan u graag te woord.
+        Mail ons gerust - we vinden het juist leuk om mee te denken en
+        reageren snel. Eén berichtje is genoeg om te beginnen.
       </p>
 
       <dl className="mt-6 space-y-5 text-sm">
-        <div className="flex items-start gap-3">
-          <Phone className="mt-0.5 h-5 w-5 flex-none text-navy-700" aria-hidden />
-          <div>
-            <dt className="text-xs font-semibold uppercase tracking-wider text-steel-500">
-              Telefoon
-            </dt>
-            <dd className="mt-1">
-              <a
-                href={company.phoneHref}
-                className="text-base font-medium text-navy-900 hover:underline"
-              >
-                {company.phone}
-              </a>
-            </dd>
-          </div>
-        </div>
-
         <div className="flex items-start gap-3">
           <Mail className="mt-0.5 h-5 w-5 flex-none text-navy-700" aria-hidden />
           <div className="min-w-0">
@@ -48,14 +32,11 @@ export function ContactInfo() {
           <MapPin className="mt-0.5 h-5 w-5 flex-none text-navy-700" aria-hidden />
           <div>
             <dt className="text-xs font-semibold uppercase tracking-wider text-steel-500">
-              Vestiging
+              Werkgebied
             </dt>
             <dd className="mt-1 text-base font-medium text-navy-900">
-              {company.location.postalCode} {company.location.city}
+              {company.region}
             </dd>
-            <p className="mt-1 text-sm text-steel-600">
-              Werkgebied: {company.region}
-            </p>
           </div>
         </div>
 

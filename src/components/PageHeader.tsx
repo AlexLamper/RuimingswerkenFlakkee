@@ -18,12 +18,12 @@ type Props = {
 export function PageHeader({ eyebrow, title, intro, crumbs }: Props) {
   return (
     <section className="border-b border-steel-200 bg-navy-900 text-white">
-      <div className="mx-auto max-w-container px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
+      <div className="mx-auto max-w-container px-5 py-8 sm:px-6 sm:py-10 lg:py-12">
         {crumbs && crumbs.length > 0 && (
           <JsonLd data={breadcrumbSchema(crumbs)} />
         )}
         {crumbs && crumbs.length > 0 && (
-          <nav aria-label="Kruimelpad" className="mb-5 text-xs text-steel-300 sm:mb-6">
+          <nav aria-label="Kruimelpad" className="mb-3 text-xs text-steel-300 sm:mb-4">
             <ol className="flex flex-wrap items-center gap-1.5">
               {crumbs.map((crumb, i) => (
                 <li key={i} className="flex items-center gap-1.5">
@@ -45,11 +45,11 @@ export function PageHeader({ eyebrow, title, intro, crumbs }: Props) {
             {eyebrow}
           </p>
         )}
-        <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+        <h1 className="mt-2 text-2xl font-bold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
           {title}
         </h1>
         {intro && (
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-steel-200 md:text-lg">
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-steel-200 md:text-base">
             {intro}
           </p>
         )}

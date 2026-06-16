@@ -1,15 +1,19 @@
 export const company = {
   name: "RuimingswerkenFlakkee",
   legalName: "Ruimingswerken Flakkee",
-  slogan: "Betrouwbaar in sloop en ruimingswerken",
+  slogan: "De helpende hand op Goeree-Overflakkee",
   tagline:
-    "Sloop, ruiming en demontage op Goeree-Overflakkee - vakwerk dat staat als een huis.",
+    "Sloop, ruiming en demontage op Goeree-Overflakkee - een jong, gedreven team dat de handen uit de mouwen steekt voor een eerlijke prijs.",
+  // Korte positioneringszin: extra handjes voor een scherpe prijs.
+  pitch:
+    "Een jong team dat als extra handjes bijspringt waar het nodig is - van sloop tot opruimen, netjes en betaalbaar.",
+  // Belangrijk: wij nemen bewust geen klussen met asbest aan.
+  noAsbestos:
+    "Klussen met asbest nemen wij bewust niet aan - voor uw en onze veiligheid verwijzen we daarvoor graag door naar een gecertificeerd asbestbedrijf.",
   // Korte, zoekwoordrijke omschrijving voor metadata en structured data.
   description:
     "Sloopbedrijf op Goeree-Overflakkee voor sloopwerken, ruiming, ontruiming, demontage, betonsloop en terreinsanering. Vrijblijvende offerte, snelle service en netjes opgeleverd.",
   region: "Goeree-Overflakkee en omgeving",
-  phone: "06 12 34 56 78",
-  phoneHref: "tel:+31612345678",
   email: "info@ruimingswerkenflakkee.nl",
   emailHref: "mailto:info@ruimingswerkenflakkee.nl",
   location: {
@@ -40,7 +44,7 @@ export const company = {
     },
   ],
   hoursNote:
-    "Buiten reguliere uren vrijwel altijd bereikbaar - behalve op zondag.",
+    "Op aanvraag vinden we vrijwel altijd een plekje - behalve op zondag.",
   kvk: "KvK in oprichting",
   url: "https://www.ruimingswerkenflakkee.nl",
   // Vul aan met echte profielen zodra beschikbaar (versterkt vindbaarheid/E-E-A-T).

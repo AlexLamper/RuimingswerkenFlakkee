@@ -1,38 +1,31 @@
-export type ProjectPhoto = {
+import { projects } from "./projects";
+
+export type HeroSlide = {
   src: string;
   alt: string;
+  title: string;
+  location: string;
+  scope: string;
 };
 
-export const featuredProject = {
-  eyebrow: "Dit project",
-  title: "Sloop tegelvloer & binnenwand",
-  subtitle: "Interieurontmanteling woning",
-  location: "Goeree-Overflakkee",
-  year: "2025",
-  photos: [
-    {
-      src: "/images/1.jpeg",
-      alt: "Drie vakmensen tijdens het verwijderen van een tegelvloer en het slopen van een binnenwand.",
-    },
-    {
-      src: "/images/2.jpeg",
-      alt: "Sloopwerk in volle gang: tegels en steenpuin op de vloer, wand wordt verwijderd.",
-    },
-    {
-      src: "/images/3.jpeg",
-      alt: "Detailbeeld van het slopen van wand en vloer in dezelfde ruimte.",
-    },
-    {
-      src: "/images/4.jpeg",
-      alt: "Tegels onder het raam worden losgehaald met daktrillers.",
-    },
-    {
-      src: "/images/5.jpeg",
-      alt: "Ontmantelde ruimte met houten plafondbalken zichtbaar en gesloopte vloer.",
-    },
-    {
-      src: "/images/6.jpeg",
-      alt: "Vervolgfase: wand wordt verder afgebroken, puin op de vloer.",
-    },
-  ] satisfies ProjectPhoto[],
-} as const;
+export const heroEyebrow = "Recent uitgevoerd";
+
+// Volgorde in de hero: tuin & terrein eerst (mooiste foto's), daarna de rest.
+const HERO_ORDER = ["tuin-terrein-middelharnis"];
+
+const orderedProjects = [...projects].sort((a, b) => {
+  const ai = HERO_ORDER.indexOf(a.slug);
+  const bi = HERO_ORDER.indexOf(b.slug);
+  return (ai === -1 ? HERO_ORDER.length : ai) - (bi === -1 ? HERO_ORDER.length : bi);
+});
+
+// 2 foto's per klus -> 6 slides die in de hero doorwisselen.
+export const heroSlides: HeroSlide[] = orderedProjects.flatMap((project) =>
+  project.photos.slice(0, 2).map((photo) => ({
+    src: photo.src,
+    alt: photo.alt,
+    title: project.title,
+    location: project.location,
+    scope: project.scope,
+  })),
+);

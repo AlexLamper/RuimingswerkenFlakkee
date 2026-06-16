@@ -19,50 +19,50 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "sloopwerken",
-    title: "Sloopwerken",
+    title: "Slopen & afbreken",
     short:
-      "Compleet of selectief slopen van woningen, schuren en bedrijfspanden - netjes en volgens de regels.",
-    long: "Van een enkele bijgebouw tot een volledig pand: we slopen veilig, gefaseerd en met respect voor de omgeving. Alle vrijkomende stromen voeren we correct en gescheiden af.",
+      "Binnenwand, tegels, een schuurtje of aanbouw eruit - wij breken af en ruimen het puin op.",
+    long: "Wij helpen met klein- en binnensloopwerk: een binnenwand eruit, tegels van de vloer, een schuurtje of aanbouw afbreken. Daar zijn we op ingericht - het puin voeren we netjes en gescheiden af.",
     icon: Hammer,
   },
   {
     slug: "demontage",
     title: "Demontage",
     short:
-      "Vakkundig demonteren van installaties, constructies en interieurs - zonder onnodige schade.",
-    long: "Wanneer hergebruik of behoud van het casco belangrijk is, demonteren we elementsgewijs. Denk aan staalconstructies, machines, kantoorinterieurs en technische installaties.",
+      "Een keuken, kasten, schutting of tuinhuisje uit elkaar halen en afvoeren.",
+    long: "Moet er iets weg dat eerst uit elkaar moet? Denk aan een keuken, kasten, een schutting of een tuinhuisje - we halen het uit elkaar en voeren de onderdelen af. Technische installaties en elektra laten we aan vakmensen over; wij zijn de extra handen voor het stevige handwerk.",
     icon: Wrench,
   },
   {
     slug: "ontruimingen",
-    title: "Ontruimingen",
+    title: "Ontruimen & leeghalen",
     short:
-      "Snelle, discrete ontruiming van woningen, bedrijfspanden en loodsen - bezem­schoon opgeleverd.",
-    long: "Bij verhuizing, overlijden, faillissement of einde huurperiode: we halen alles weg, scheiden de stromen en leveren bezemschoon op. Altijd in overleg en met begrip voor de situatie.",
+      "Woning, schuur, zolder of garage leeghalen - alles eruit en bezemschoon achter.",
+    long: "Bij een verhuizing, opruiming of het leegmaken van een woning, schuur, zolder of garage: we dragen alles naar buiten, scheiden de stromen en leveren bezemschoon op. Altijd in overleg en met begrip voor de situatie.",
     icon: PackageOpen,
   },
   {
     slug: "beton-en-constructiesloop",
-    title: "Beton en constructiesloop",
+    title: "Vloeren & beton",
     short:
-      "Doorzagen, breken en verwijderen van betonvloeren, funderingen en draagconstructies.",
-    long: "Met de juiste machines pakken we beton, gewapend beton en zware constructies aan. Trillingsarm waar dat moet, krachtig waar dat kan - en altijd met een veilig werkterrein.",
+      "Tegelvloeren en lichtere betonvloeren opbreken en afvoeren.",
+    long: "Een tegelvloer eruit of een lichtere betonvloer opbreken? Dat pakken we met handgereedschap aan en het puin voeren we af. Zware draag- en funderingsconstructies laten we aan gespecialiseerde sloopbedrijven over.",
     icon: Building2,
   },
   {
     slug: "terreinsanering",
-    title: "Terreinsanering & ruiming",
+    title: "Tuin & terrein opruimen",
     short:
-      "Begroeiing, puin, oude opstallen en zwerfafval weghalen - terrein klaar voor nieuwe invulling.",
-    long: "Verwilderde percelen, oude erfopstallen of een terrein vol restmateriaal: we ruimen, vlakken af en maken het kavel klaar voor verkoop, nieuwbouw of agrarisch gebruik.",
+      "Begroeiing, oud puin en rommel weghalen - tuin of terrein weer netjes.",
+    long: "Een overwoekerde tuin, een vol achterterrein of een hoop oud materiaal: we ruimen op, halen begroeiing en puin weg en maken het terrein weer netjes en bruikbaar.",
     icon: Trees,
   },
   {
     slug: "afvoer-en-recycling",
-    title: "Afvoer & recycling",
+    title: "Afvoer & opruimen",
     short:
-      "Gescheiden afvoer van bouw- en sloopafval - zo veel mogelijk terug de keten in.",
-    long: "Alles wat vrijkomt wordt gescheiden aangeleverd bij erkende verwerkers: puin, hout, metaal, gips, dakbedekking en restafval. U ontvangt de stortbonnen op verzoek.",
+      "Puin, hout, metaal en restafval gescheiden afvoeren naar erkende verwerkers.",
+    long: "Alles wat vrijkomt nemen we mee: puin, hout, metaal, gips en restafval gaan gescheiden naar erkende verwerkers. Stortbonnen ontvangt u op verzoek.",
     icon: Recycle,
   },
 ];

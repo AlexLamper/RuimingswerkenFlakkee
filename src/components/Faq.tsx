@@ -14,7 +14,6 @@ export function Faq() {
           <SectionHeading
             eyebrow="Veelgestelde vragen"
             title="Veelgestelde vragen over sloop en ruiming"
-            intro="De vragen die we het vaakst krijgen over werken op Goeree-Overflakkee. Staat uw vraag er niet bij? Neem gerust contact op."
             align="center"
           />
         </Reveal>

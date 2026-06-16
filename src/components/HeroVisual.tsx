@@ -3,13 +3,13 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { featuredProject } from "@/data/featuredProject";
+import { heroEyebrow, heroSlides } from "@/data/featuredProject";
 
 const AUTO_ADVANCE_MS = 5000;
 
 export function HeroVisual() {
-  const photos = featuredProject.photos;
-  const total = photos.length;
+  const slides = heroSlides;
+  const total = slides.length;
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -28,20 +28,25 @@ export function HeroVisual() {
     return () => window.clearInterval(id);
   }, [paused, total]);
 
+  const current = slides[index];
+
   return (
     <section
       className="relative"
-      aria-label="Recent uitgevoerd project"
+      aria-label="Recent uitgevoerde projecten"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
       <header className="mb-3 flex items-baseline justify-between gap-4">
         <div className="min-w-0">
           <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-steel-300">
-            {featuredProject.eyebrow}
+            {heroEyebrow}
           </p>
-          <h2 className="mt-1.5 truncate text-base font-semibold tracking-tight text-white sm:text-lg">
-            {featuredProject.title}
+          <h2
+            aria-live="polite"
+            className="mt-1.5 truncate text-base font-semibold tracking-tight text-white sm:text-lg"
+          >
+            {current.title}
           </h2>
         </div>
         <p
@@ -55,11 +60,11 @@ export function HeroVisual() {
       </header>
 
       <div className="relative aspect-[4/3] w-full overflow-hidden border border-navy-700/60 bg-navy-950 sm:aspect-[5/4] lg:aspect-[4/3]">
-        {photos.map((photo, i) => (
+        {slides.map((slide, i) => (
           <Image
-            key={photo.src}
-            src={photo.src}
-            alt={photo.alt}
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
             fill
             sizes="(min-width: 1024px) 40vw, 100vw"
             priority={i === 0}
@@ -74,12 +79,12 @@ export function HeroVisual() {
 
         <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 border border-white/15 bg-navy-950/55 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm sm:left-4 sm:top-4 sm:px-2.5 sm:py-1">
           <span className="h-1.5 w-1.5 rounded-full bg-white" />
-          Foto {String(index + 1).padStart(2, "0")}
+          {current.scope}
         </div>
 
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-3 sm:p-4">
           <p className="min-w-0 max-w-[65%] truncate text-xs font-medium text-white sm:text-sm">
-            {featuredProject.subtitle} · {featuredProject.location}
+            {current.title} · {current.location}
           </p>
           <div className="flex shrink-0 items-center gap-1.5">
             <button
@@ -107,7 +112,7 @@ export function HeroVisual() {
         aria-label="Foto navigatie"
         className="mt-3 flex items-center justify-center gap-2"
       >
-        {photos.map((_, i) => {
+        {slides.map((_, i) => {
           const active = i === index;
           return (
             <button
