@@ -81,7 +81,7 @@ export function ContactForm() {
       });
 
       const data = (await res.json().catch(() => null)) as
-        | { success?: boolean }
+        | { success?: boolean; message?: string }
         | null;
 
       if (res.ok && data?.success) {
@@ -91,7 +91,7 @@ export function ContactForm() {
       }
 
       setStatus("error");
-      setErrorMsg("Er ging iets mis bij het verzenden.");
+      setErrorMsg(data?.message ?? "Er ging iets mis bij het verzenden.");
     } catch {
       setStatus("error");
       setErrorMsg(

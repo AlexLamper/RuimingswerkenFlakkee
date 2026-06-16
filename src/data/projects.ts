@@ -23,7 +23,7 @@ export const projects: Project[] = [
     location: "Ouddorp",
     scope: "Sloop & verbouwing",
     description:
-      "Voor een verbouwing hebben we de woonkamer compleet ontmanteld: tegelvloer eruit, een binnenwand gesloopt en alle puin afgevoerd. Zo lag de ruimte klaar om opnieuw op te bouwen.",
+      "Voor een verbouwing hebben we de woonkamer compleet ontmanteld: tegelvloer eruit, een binnenwand gesloopt en alle puin afgevoerd. Met meerdere man tegelijk ging het hakken, scheppen en sjouwen lekker door, zodat de ruimte in één keer kaal was. Tegels, steen en gruis hebben we netjes gescheiden afgevoerd, zodat de bewoner meteen verder kon met de opbouw.",
     result: "Ruimte bezemschoon en klaar voor de verbouwing - puin netjes afgevoerd.",
     photos: [
       {
@@ -59,7 +59,7 @@ export const projects: Project[] = [
     location: "Middelharnis",
     scope: "Ontruiming",
     description:
-      "Een rijtjeswoning compleet leeggehaald: meubels, kasten en restspullen naar buiten gedragen, ingeladen en afgevoerd. Een paar extra handjes die het zware werk uit handen nemen.",
+      "Een rijtjeswoning compleet leeggehaald: meubels, kasten en restspullen naar buiten gedragen, ingeladen en afgevoerd. Het zware tilwerk en de trappen namen we volledig uit handen, zodat de bewoners zich nergens druk om hoefden te maken. Wat nog bruikbaar was hebben we apart gehouden, de rest is gescheiden naar de juiste plek gebracht.",
     result: "Woning leeg en bezemschoon opgeleverd op de afgesproken dag.",
     photos: [
       {
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     location: "Middelharnis",
     scope: "Tuin & terrein",
     description:
-      "Een overwoekerd achterterrein weer netjes gemaakt: begroeiing weggehaald, grond geëgaliseerd en al het groenafval afgevoerd met kruiwagen en schop.",
+      "Een overwoekerd achterterrein weer netjes gemaakt: begroeiing weggehaald, grond geëgaliseerd en al het groenafval afgevoerd met kruiwagen en schop. Met een paar man erbij was het stevige spitten en scheppen zo gepiept en lag het terrein binnen een dag vlak. De eigenaar kon daarna direct verder met de nieuwe invulling van de tuin.",
     result: "Terrein vlak en opgeruimd, klaar voor nieuwe invulling.",
     photos: [
       {

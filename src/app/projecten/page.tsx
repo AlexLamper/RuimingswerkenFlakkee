@@ -39,27 +39,33 @@ export default function ProjectenPage() {
                   i > 0 ? "mt-12 border-t border-steel-200 pt-12 lg:mt-16 lg:pt-16" : ""
                 }`}
               >
-                <header className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                  <span className="font-mono text-sm font-semibold text-steel-400">
-                    {project.number}
-                  </span>
-                  <h2 className="text-xl font-bold tracking-tight text-navy-900 sm:text-2xl">
-                    {project.title}
-                  </h2>
-                  <span className="inline-flex items-center gap-1.5 text-sm text-steel-500">
-                    <MapPin className="h-3.5 w-3.5" aria-hidden />
-                    {project.location}
-                  </span>
-                  <span className="inline-flex items-center rounded-sm bg-navy-50 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-navy-700">
-                    {project.scope}
-                  </span>
-                </header>
-
-                <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1.5fr] lg:gap-10">
-                  <p className="text-base leading-relaxed text-steel-700">
-                    {project.description}{" "}
-                    <span className="text-navy-900">{project.result}</span>
-                  </p>
+                <div className="grid gap-6 lg:grid-cols-[1fr_1.5fr] lg:gap-10 lg:items-start">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-sm font-semibold text-steel-400">
+                        {project.number}
+                      </span>
+                      <span className="inline-flex items-center rounded-sm bg-navy-50 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-navy-700">
+                        {project.scope}
+                      </span>
+                    </div>
+                    <h2 className="mt-3 text-xl font-bold tracking-tight text-navy-900 sm:text-2xl">
+                      {project.title}
+                    </h2>
+                    <p className="mt-1.5 flex items-center gap-1.5 text-sm text-steel-500">
+                      <MapPin className="h-3.5 w-3.5" aria-hidden />
+                      {project.location}
+                    </p>
+                    <p className="mt-4 text-base leading-relaxed text-steel-700">
+                      {project.description}
+                    </p>
+                    <p className="mt-4 border-l-2 border-navy-900 bg-steel-50 px-4 py-3 text-sm font-medium text-navy-900">
+                      Resultaat:{" "}
+                      <span className="font-normal text-steel-700">
+                        {project.result}
+                      </span>
+                    </p>
+                  </div>
 
                   <ProjectGallery photos={project.photos} title={project.title} />
                 </div>
