@@ -47,8 +47,9 @@ export const company = {
     "Op aanvraag vinden we vrijwel altijd een plekje - behalve op zondag.",
   kvk: "KvK in oprichting",
   url: "https://www.ruimingswerkenflakkee.nl",
-  // Vul aan met echte profielen zodra beschikbaar (versterkt vindbaarheid/E-E-A-T).
-  sameAs: [] as string[],
+  instagram: "https://www.instagram.com/ruimingswerkenflakkee",
+  // Sociale profielen (versterkt vindbaarheid/E-E-A-T via sameAs).
+  sameAs: ["https://www.instagram.com/ruimingswerkenflakkee"] as string[],
   // Kernen op Goeree-Overflakkee waar we actief zijn - gebruikt voor
   // werkgebied-content en areaServed in structured data.
   places: [

@@ -27,28 +27,24 @@ export const projects: Project[] = [
     result: "Ruimte bezemschoon en klaar voor de verbouwing - puin netjes afgevoerd.",
     photos: [
       {
-        src: "/images/ouddorp_klus1_1.jpeg",
+        src: "/images/projects/verbouwing-woning-ouddorp/1.jpeg",
         alt: "Drie jongens slopen samen een tegelvloer en binnenwand tijdens een woningverbouwing in Ouddorp.",
       },
       {
-        src: "/images/ouddorp_klus1_2.jpeg",
+        src: "/images/projects/verbouwing-woning-ouddorp/2.jpeg",
         alt: "Tegelvloer wordt opgebroken, puin verzamelt zich op de vloer.",
       },
       {
-        src: "/images/ouddorp_klus1_3.jpeg",
+        src: "/images/projects/verbouwing-woning-ouddorp/3.jpeg",
         alt: "Binnenwand wordt afgebroken tijdens de interieursloop.",
       },
       {
-        src: "/images/ouddorp_klus1_4.jpeg",
+        src: "/images/projects/verbouwing-woning-ouddorp/4.jpeg",
         alt: "Detail van het loshalen van tegels met handgereedschap.",
       },
       {
-        src: "/images/ouddorp_klus1_5.jpeg",
+        src: "/images/projects/verbouwing-woning-ouddorp/5.jpeg",
         alt: "Ontmantelde woonkamer met houten plafondbalken zichtbaar.",
-      },
-      {
-        src: "/images/ouddorp_klus1_6.jpeg",
-        alt: "Vervolgfase van de sloop: wand verder afgebroken, puin klaar voor afvoer.",
       },
     ],
   },
@@ -63,19 +59,19 @@ export const projects: Project[] = [
     result: "Woning leeg en bezemschoon opgeleverd op de afgesproken dag.",
     photos: [
       {
-        src: "/images/middelharnis_klus1_1.jpeg",
+        src: "/images/projects/woningontruiming-middelharnis/1.jpeg",
         alt: "Jongen draagt een kast naar buiten bij het leeghalen van een rijtjeswoning in Middelharnis.",
       },
       {
-        src: "/images/middelharnis_klus1_2.jpeg",
+        src: "/images/projects/woningontruiming-middelharnis/2.jpeg",
         alt: "Meubels en spullen worden uit de woning gedragen en klaargezet voor afvoer.",
       },
       {
-        src: "/images/middelharnis_klus1_3.jpeg",
+        src: "/images/projects/woningontruiming-middelharnis/3.jpeg",
         alt: "Inladen van inboedel tijdens de woningontruiming.",
       },
       {
-        src: "/images/middelharnis_klus1_4.jpeg",
+        src: "/images/projects/woningontruiming-middelharnis/4.jpeg",
         alt: "Verhuisdozen en restspullen klaar om afgevoerd te worden.",
       },
     ],
@@ -83,20 +79,40 @@ export const projects: Project[] = [
   {
     slug: "tuin-terrein-middelharnis",
     number: "03",
-    title: "Tuin & terrein opgeruimd",
+    title: "Terrein opgehoogd langs het water",
     location: "Middelharnis",
-    scope: "Tuin & terrein",
+    scope: "Grondwerk",
     description:
-      "Een overwoekerd achterterrein weer netjes gemaakt: begroeiing weggehaald, grond geëgaliseerd en al het groenafval afgevoerd met kruiwagen en schop. Met een paar man erbij was het stevige spitten en scheppen zo gepiept en lag het terrein binnen een dag vlak. De eigenaar kon daarna direct verder met de nieuwe invulling van de tuin.",
-    result: "Terrein vlak en opgeruimd, klaar voor nieuwe invulling.",
+      "Een achterterrein langs het water moest worden opgehoogd om te voorkomen dat de schuur richting het water zou wegzakken. Met kruiwagens hebben we grond verplaatst en aangebracht op de plekken die extra versteviging nodig hadden. Zo staat de schuur weer stevig en hoeft de eigenaar zich geen zorgen meer te maken dat de grond wegzakt.",
+    result: "Schuur weer stevig - geen risico meer dat de grond wegzakt.",
     photos: [
       {
-        src: "/images/middelharnis_klus2_1.jpeg",
-        alt: "Vier jongens ruimen met schoffels en een kruiwagen een overwoekerd achterterrein in Middelharnis op.",
+        src: "/images/projects/tuin-terrein-middelharnis/1.jpeg",
+        alt: "Vier jongens hogen met kruiwagens en schoppen een achterterrein langs het water op in Middelharnis.",
       },
       {
-        src: "/images/middelharnis_klus2_2.jpeg",
-        alt: "Begroeiing en groenafval worden verzameld en het terrein wordt geëgaliseerd.",
+        src: "/images/projects/tuin-terrein-middelharnis/2.jpeg",
+        alt: "Grond wordt met de kruiwagen verplaatst en aangebracht om het terrein te verstevigen.",
+      },
+    ],
+  },
+  {
+    slug: "fundering-schuur-middelharnis",
+    number: "04",
+    title: "Betonnen fundering gesloopt",
+    location: "Middelharnis",
+    scope: "Betonsloop",
+    description:
+      "De betonnen fundering van een oude schuur eruit gesloopt en helemaal opgeruimd. Met breekwerk hebben we het beton in stukken gehaald, de brokken in de container geladen en afgevoerd. Wat overbleef was een schoon, vlak terrein - klaar voor wat er ook komt.",
+    result: "Fundering verwijderd en terrein klaargemaakt voor de volgende stap.",
+    photos: [
+      {
+        src: "/images/projects/fundering-schuur-middelharnis/1.jpeg",
+        alt: "Het terrein naast de schuur is leeg en vlak nadat de betonnen fundering is verwijderd in Middelharnis.",
+      },
+      {
+        src: "/images/projects/fundering-schuur-middelharnis/2.jpeg",
+        alt: "Container vol gesloopt betonpuin naast de schuur, brokken van de oude fundering opgestapeld.",
       },
     ],
   },

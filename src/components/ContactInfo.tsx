@@ -1,4 +1,4 @@
-import { Clock, Mail, MapPin } from "lucide-react";
+import { Clock, Instagram, Mail, MapPin } from "lucide-react";
 import { company } from "@/data/company";
 
 export function ContactInfo() {
@@ -60,6 +60,26 @@ export function ContactInfo() {
             <p className="mt-3 text-xs leading-relaxed text-steel-600">
               {company.hoursNote}
             </p>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-3">
+          <Instagram className="mt-0.5 h-5 w-5 flex-none text-navy-700" aria-hidden />
+          <div>
+            <dt className="text-xs font-semibold uppercase tracking-wider text-steel-500">
+              Social media
+            </dt>
+            <dd className="mt-1.5">
+              <a
+                href={company.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Volg ons op Instagram"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-steel-200 text-navy-700 transition-colors hover:border-navy-700 hover:bg-navy-50"
+              >
+                <Instagram className="h-4 w-4" aria-hidden />
+              </a>
+            </dd>
           </div>
         </div>
       </dl>

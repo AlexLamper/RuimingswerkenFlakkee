@@ -47,18 +47,15 @@ export default function OverOnsPage() {
             <div className="mt-5 space-y-5 text-base leading-relaxed text-steel-700">
               <p>
                 {company.name} is begonnen met zeven vrienden die graag de
-                handen uit de mouwen steken. We zijn een jong team en delen
-                dezelfde kriebel: aanpakken én ondernemen. In plaats van te
-                wachten op een bijbaantje zijn we gewoon ons eigen bedrijfje
-                gestart.
+                handen uit de mouwen steken. We zijn een jong team dat houdt van
+                aanpakken en ondernemen.
               </p>
               <p>
-                Iedereen brengt iets anders mee. Een paar van ons zitten in de
-                werktuigbouwkunde, sommigen hebben hun VCA op zak en de rest
-                pakt aan waar het maar kan. Die mix is precies onze kracht: de
-                een denkt mee over de techniek, de ander tilt het zware werk -
-                ieder zet zijn eigen kwaliteiten in en samen krijgen we de klus
-                af.
+                Iedereen brengt zijn eigen achtergrond mee - van een technische
+                opleiding zoals werktuigbouwkunde tot een VCA-certificaat voor
+                veilig werken. Die mix is precies onze kracht: de een denkt mee
+                over de techniek, de ander pakt het zware werk - ieder zet zijn
+                eigen kwaliteiten in en samen krijgen we de klus af.
               </p>
               <p>
                 We werken op Goeree-Overflakkee en directe omgeving, voor

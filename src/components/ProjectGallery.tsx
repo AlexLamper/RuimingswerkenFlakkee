@@ -178,10 +178,6 @@ export function ProjectGallery({ photos, title }: Props) {
               </>
             )}
           </div>
-
-          <p className="px-4 pb-4 text-center text-xs leading-relaxed text-steel-300 sm:px-6">
-            {active.alt}
-          </p>
         </div>
       )}
     </div>
