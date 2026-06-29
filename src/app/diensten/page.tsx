@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Diensten: sloopwerken, demontage & ruiming op Goeree-Overflakkee",
     description:
-      "Het volledige pakket sloop- en ruimingswerkzaamheden op Goeree-Overflakkee - van schouw tot bezemschone oplevering.",
+      "Het volledige pakket sloop- en ruimingswerkzaamheden op Goeree-Overflakkee - van bezichtiging tot bezemschone oplevering.",
     url: "/diensten",
   },
 };
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const process = [
   {
     step: "01",
-    title: "Schouw op locatie",
+    title: "Bezichtiging op locatie",
     text: "We komen vrijblijvend langs, bekijken het werk en stemmen wensen en planning af.",
   },
   {

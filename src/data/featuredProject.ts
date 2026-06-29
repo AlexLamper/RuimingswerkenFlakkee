@@ -10,22 +10,36 @@ export type HeroSlide = {
 
 export const heroEyebrow = "Recent uitgevoerd";
 
-// Volgorde in de hero: tuin & terrein eerst (mooiste foto's), daarna de rest.
-const HERO_ORDER = ["tuin-terrein-middelharnis"];
+// Projecten 1 t/m 5 in de hero (woningontruiming valt erbuiten).
+const HERO_PROJECTS = [
+  "dak-eraf-stad-aant-haringvliet",
+  "muren-slopen-huis-stellendam",
+  "tuin-terrein-middelharnis",
+  "fundering-schuur-middelharnis",
+  "verbouwing-woning-ouddorp",
+];
 
-const orderedProjects = [...projects].sort((a, b) => {
-  const ai = HERO_ORDER.indexOf(a.slug);
-  const bi = HERO_ORDER.indexOf(b.slug);
-  return (ai === -1 ? HERO_ORDER.length : ai) - (bi === -1 ? HERO_ORDER.length : bi);
-});
+const heroProjects = HERO_PROJECTS.map((slug) =>
+  projects.find((p) => p.slug === slug),
+).filter((p): p is (typeof projects)[number] => Boolean(p));
 
-// 2 foto's per klus -> 6 slides die in de hero doorwisselen.
-export const heroSlides: HeroSlide[] = orderedProjects.flatMap((project) =>
-  project.photos.slice(0, 2).map((photo) => ({
-    src: photo.src,
-    alt: photo.alt,
-    title: project.title,
-    location: project.location,
-    scope: project.scope,
-  })),
-);
+const PHOTOS_PER_PROJECT = 2;
+
+// Round-robin: per ronde 1 foto per klus, zodat de hero tussen projecten afwisselt.
+export const heroSlides: HeroSlide[] = Array.from(
+  { length: PHOTOS_PER_PROJECT },
+  (_, round) =>
+    heroProjects
+      .map((project) => {
+        const photo = project.photos[round];
+        if (!photo) return null;
+        return {
+          src: photo.src,
+          alt: photo.alt,
+          title: project.title,
+          location: project.location,
+          scope: project.scope,
+        };
+      })
+      .filter((slide): slide is HeroSlide => slide !== null),
+).flat();
