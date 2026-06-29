@@ -149,13 +149,16 @@ export function ProjectGallery({ photos, title }: Props) {
             </button>
           </div>
 
-          <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden px-3 pb-2 sm:px-20">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={active.src}
-              alt={active.alt}
-              className="max-h-full max-w-full object-contain"
-            />
+          <div className="relative flex min-h-0 flex-1 overflow-hidden">
+            {/* Scrollbare laag: korte foto's centreren, hoge foto's scrollen volledig in beeld. */}
+            <div className="flex min-h-full w-full justify-center overflow-y-auto overflow-x-hidden px-3 py-2 sm:px-20">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={active.src}
+                alt={active.alt}
+                className="my-auto h-auto max-w-full object-contain"
+              />
+            </div>
 
             {total > 1 && (
               <>
