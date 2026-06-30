@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
 import type { ProjectPhoto } from "@/data/projects";
 
@@ -124,16 +125,17 @@ export function ProjectGallery({ photos, title }: Props) {
         </ul>
       )}
 
-      {/* Lightbox */}
-      {lightbox && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Foto's van ${title}`}
-          className="fixed inset-0 z-50 flex flex-col bg-navy-950/95"
-        >
-          <div className="flex items-center justify-between px-4 py-3 text-white sm:px-6">
-            <p className="text-sm font-medium">
+      {/* Lightbox — via portal naar body zodat geen enkele stacking context (sticky header) eroverheen komt. */}
+      {lightbox &&
+        createPortal(
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Foto's van ${title}`}
+            className="fixed inset-0 z-[100] flex flex-col bg-navy-950/95"
+          >
+          <div className="flex shrink-0 items-center justify-between gap-3 px-4 py-3 text-white sm:px-6">
+            <p className="min-w-0 truncate text-sm font-medium">
               {title}
               <span className="ml-2 font-mono text-xs text-steel-400">
                 {current + 1} / {total}
@@ -143,22 +145,20 @@ export function ProjectGallery({ photos, title }: Props) {
               type="button"
               onClick={() => setLightbox(false)}
               aria-label="Sluiten"
-              className="inline-flex h-10 w-10 items-center justify-center border border-white/20 bg-navy-950/60 text-white hover:bg-navy-950"
+              className="z-10 inline-flex h-10 w-10 shrink-0 items-center justify-center border border-white/20 bg-navy-950/60 text-white hover:bg-navy-950"
             >
               <X className="h-5 w-5" aria-hidden />
             </button>
           </div>
 
-          <div className="relative flex min-h-0 flex-1 overflow-hidden">
-            {/* Scrollbare laag: korte foto's centreren, hoge foto's scrollen volledig in beeld. */}
-            <div className="flex min-h-full w-full justify-center overflow-y-auto overflow-x-hidden px-3 py-2 sm:px-20">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={active.src}
-                alt={active.alt}
-                className="my-auto h-auto max-w-full object-contain"
-              />
-            </div>
+          <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden px-3 py-2 sm:px-20">
+            {/* Foto past altijd binnen het scherm: begrensd op breedte én hoogte. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={active.src}
+              alt={active.alt}
+              className="max-h-full max-w-full object-contain"
+            />
 
             {total > 1 && (
               <>
@@ -181,8 +181,9 @@ export function ProjectGallery({ photos, title }: Props) {
               </>
             )}
           </div>
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }
