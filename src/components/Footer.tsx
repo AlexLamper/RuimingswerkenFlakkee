@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { company } from "@/data/company";
 import { mainNav } from "@/data/navigation";
 import { services } from "@/data/services";
@@ -75,16 +75,16 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-3 text-sm">
               <li className="flex items-start gap-3">
+                <Phone className="mt-0.5 h-4 w-4 flex-none text-steel-400" aria-hidden />
+                <a href={company.phoneHref} className="hover:text-white">
+                  {company.phone}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
                 <Mail className="mt-0.5 h-4 w-4 flex-none text-steel-400" aria-hidden />
                 <a href={company.emailHref} className="hover:text-white">
                   {company.email}
                 </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 flex-none text-steel-400" aria-hidden />
-                <span>
-                  {company.location.postalCode} {company.location.city}
-                </span>
               </li>
             </ul>
           </div>

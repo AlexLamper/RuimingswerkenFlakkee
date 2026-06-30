@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Mail, Menu, X } from "lucide-react";
+import { Mail, Menu, Phone, X } from "lucide-react";
 import { company } from "@/data/company";
 import { mainNav } from "@/data/navigation";
 
@@ -22,13 +22,22 @@ export function Header() {
           <span className="tracking-wide">
             Actief in {company.region}
           </span>
-          <a
-            href={company.emailHref}
-            className="flex items-center gap-2 hover:text-white"
-          >
-            <Mail className="h-3.5 w-3.5" aria-hidden />
-            {company.email}
-          </a>
+          <div className="flex items-center gap-5">
+            <a
+              href={company.phoneHref}
+              className="flex items-center gap-2 hover:text-white"
+            >
+              <Phone className="h-3.5 w-3.5" aria-hidden />
+              {company.phone}
+            </a>
+            <a
+              href={company.emailHref}
+              className="flex items-center gap-2 hover:text-white"
+            >
+              <Mail className="h-3.5 w-3.5" aria-hidden />
+              {company.email}
+            </a>
+          </div>
         </div>
       </div>
 
@@ -116,6 +125,13 @@ export function Header() {
             >
               Offerte aanvragen
             </Link>
+            <a
+              href={company.phoneHref}
+              className="mt-1 flex items-center justify-center gap-2 rounded-sm border border-steel-200 px-4 py-3 text-sm font-medium text-navy-900"
+            >
+              <Phone className="h-4 w-4" aria-hidden />
+              {company.phone}
+            </a>
             <a
               href={company.emailHref}
               className="mt-1 flex items-center justify-center gap-2 rounded-sm border border-steel-200 px-4 py-3 text-sm font-medium text-navy-900"

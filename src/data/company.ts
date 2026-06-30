@@ -16,6 +16,8 @@ export const company = {
   region: "Goeree-Overflakkee en omgeving",
   email: "info@ruimingswerkenflakkee.nl",
   emailHref: "mailto:info@ruimingswerkenflakkee.nl",
+  phone: "06 13 521 839",
+  phoneHref: "tel:+31613521839",
   location: {
     // LET OP: vul straat + huisnummer aan zodra bekend; een volledig adres
     // (NAP) versterkt de lokale SEO en Google Bedrijfsprofiel-koppeling.

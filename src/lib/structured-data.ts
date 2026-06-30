@@ -47,6 +47,7 @@ export function localBusinessSchema() {
     description: company.description,
     url: BASE,
     email: company.email,
+    telephone: company.phoneHref.replace("tel:", ""),
     image: LOGO_URL,
     logo: LOGO_URL,
     priceRange: company.priceRange,

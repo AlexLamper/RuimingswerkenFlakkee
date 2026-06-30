@@ -1,4 +1,4 @@
-import { Clock, Instagram, Mail, MapPin } from "lucide-react";
+import { Clock, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { company } from "@/data/company";
 
 export function ContactInfo() {
@@ -11,6 +11,23 @@ export function ContactInfo() {
       </p>
 
       <dl className="mt-6 space-y-5 text-sm">
+        <div className="flex items-start gap-3">
+          <Phone className="mt-0.5 h-5 w-5 flex-none text-navy-700" aria-hidden />
+          <div className="min-w-0">
+            <dt className="text-xs font-semibold uppercase tracking-wider text-steel-500">
+              Telefoon
+            </dt>
+            <dd className="mt-1">
+              <a
+                href={company.phoneHref}
+                className="text-base font-medium text-navy-900 hover:underline"
+              >
+                {company.phone}
+              </a>
+            </dd>
+          </div>
+        </div>
+
         <div className="flex items-start gap-3">
           <Mail className="mt-0.5 h-5 w-5 flex-none text-navy-700" aria-hidden />
           <div className="min-w-0">
