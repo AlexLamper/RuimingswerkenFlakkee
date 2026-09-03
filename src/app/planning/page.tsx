@@ -1,36 +1,26 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
-import { PlanningAgenda } from "@/components/planning/PlanningAgenda";
-import { PlanningLogin } from "@/components/planning/PlanningLogin";
-import { hasPlanningAccess } from "@/lib/planning-auth";
+import { PlanningGate } from "@/components/planning/PlanningGate";
 
 export const metadata: Metadata = {
   title: "Teamplanning",
   robots: { index: false, follow: false },
 };
 
-// Toegang hangt af van de sessiecookie; nooit statisch renderen.
-export const dynamic = "force-dynamic";
-// planning-auth gebruikt node:crypto; dwing de Node-runtime af.
-export const runtime = "nodejs";
-
-export default async function PlanningPage() {
-  const loggedIn = await hasPlanningAccess();
-
+// Bewust statisch: de sessiecheck gebeurt client-side via
+// /api/planning/session. Een dynamische server-render van deze route gaf op
+// Vercel een onherleidbare "Server Components render"-fout.
+export default function PlanningPage() {
   return (
     <>
       <PageHeader
         eyebrow="Intern"
         title="Teamplanning"
-        intro={
-          loggedIn
-            ? "Vul in wanneer je beschikbaar bent. Wijzigingen worden direct opgeslagen en zijn voor het hele team zichtbaar."
-            : "Deze pagina is alleen toegankelijk voor teamleden."
-        }
+        intro="Deze pagina is alleen toegankelijk voor teamleden."
       />
       <section className="bg-steel-50">
         <div className="mx-auto max-w-container px-5 py-10 sm:px-6 sm:py-14">
-          {loggedIn ? <PlanningAgenda /> : <PlanningLogin />}
+          <PlanningGate />
         </div>
       </section>
     </>
