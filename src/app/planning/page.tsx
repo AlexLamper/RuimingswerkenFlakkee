@@ -5,20 +5,18 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export const dynamic = "force-dynamic";
-export const runtime = "nodejs";
-
-// TIJDELIJK: kale pagina om te bisecteren welk onderdeel de productiecrash
-// veroorzaakt. Stap 1 - niets van planning, alleen platte HTML.
+// TIJDELIJK - bisect stap 2: volledig statische pagina, net als /contact.
+// Geen force-dynamic, geen error.tsx, geen auth, geen client components.
 export default function PlanningPage() {
   return (
     <section className="bg-steel-50">
       <div className="mx-auto max-w-container px-5 py-16 sm:px-6">
         <h1 className="text-2xl font-bold text-navy-900">
-          Teamplanning (diagnose)
+          Teamplanning (diagnose stap 2)
         </h1>
         <p className="mt-3 text-sm text-steel-600">
-          bisect-stap 1: kale pagina rendert. Timestamp: {Date.now()}
+          Volledig statische render. Als dit laadt, ligt het aan dynamic
+          rendering of de error-boundary.
         </p>
       </div>
     </section>
