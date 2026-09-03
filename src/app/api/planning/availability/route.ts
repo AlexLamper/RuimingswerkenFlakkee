@@ -65,7 +65,8 @@ export async function GET(request: Request) {
 }
 
 // PUT /api/planning/availability
-// Body: { person, date: "YYYY-MM-DD", status: "beschikbaar" | "niet-beschikbaar" | null }
+// Body: { person, date: "YYYY-MM-DD",
+//         status: "beschikbaar" | "ochtend" | "avond" | "niet-beschikbaar" | null }
 // status null wist de invulling voor die dag.
 export async function PUT(request: Request) {
   if (!(await hasPlanningAccess())) return unauthorized();

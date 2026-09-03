@@ -11,7 +11,21 @@ export const planningPeople = [
 
 export type PlanningPerson = (typeof planningPeople)[number];
 
-export type AvailabilityStatus = "beschikbaar" | "niet-beschikbaar";
+// "ochtend" en "avond" = alleen dat dagdeel beschikbaar; "beschikbaar" = hele
+// dag. Zo kan iemand die alleen 's ochtends of alleen 's avonds kan dat laten
+// zien in plaats van de dag helemaal open of dicht te zetten.
+export type AvailabilityStatus =
+  | "beschikbaar"
+  | "ochtend"
+  | "avond"
+  | "niet-beschikbaar";
+
+const AVAILABILITY_STATUSES: readonly AvailabilityStatus[] = [
+  "beschikbaar",
+  "ochtend",
+  "avond",
+  "niet-beschikbaar",
+];
 
 export function isPlanningPerson(value: unknown): value is PlanningPerson {
   return (
@@ -23,5 +37,8 @@ export function isPlanningPerson(value: unknown): value is PlanningPerson {
 export function isAvailabilityStatus(
   value: unknown
 ): value is AvailabilityStatus {
-  return value === "beschikbaar" || value === "niet-beschikbaar";
+  return (
+    typeof value === "string" &&
+    (AVAILABILITY_STATUSES as readonly string[]).includes(value)
+  );
 }

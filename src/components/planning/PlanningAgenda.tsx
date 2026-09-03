@@ -9,6 +9,8 @@ import {
   ChevronRight,
   Loader2,
   LogOut,
+  Sunrise,
+  Sunset,
   X,
 } from "lucide-react";
 import {
@@ -57,13 +59,71 @@ function todayIso(): string {
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 }
 
-// Cyclus bij klikken: leeg → beschikbaar → niet beschikbaar → leeg.
+// Cyclus bij klikken:
+// leeg → beschikbaar → alleen ochtend → alleen avond → niet beschikbaar → leeg.
 function nextStatus(
   current: AvailabilityStatus | undefined
 ): AvailabilityStatus | null {
-  if (current === undefined) return "beschikbaar";
-  if (current === "beschikbaar") return "niet-beschikbaar";
-  return null;
+  switch (current) {
+    case undefined:
+      return "beschikbaar";
+    case "beschikbaar":
+      return "ochtend";
+    case "ochtend":
+      return "avond";
+    case "avond":
+      return "niet-beschikbaar";
+    default:
+      return null;
+  }
+}
+
+// Kleur per status voor de cel in de agenda.
+function statusLook(status: AvailabilityStatus | undefined): string {
+  switch (status) {
+    case "beschikbaar":
+      return "bg-emerald-100 text-emerald-700";
+    case "ochtend":
+      return "bg-amber-100 text-amber-700";
+    case "avond":
+      return "bg-violet-100 text-violet-700";
+    case "niet-beschikbaar":
+      return "bg-red-100 text-red-600";
+    default:
+      return "bg-steel-100 text-steel-300";
+  }
+}
+
+// Korte tekstuele omschrijving, gebruikt in aria-labels.
+function statusText(status: AvailabilityStatus | undefined): string {
+  switch (status) {
+    case "beschikbaar":
+      return "beschikbaar";
+    case "ochtend":
+      return "alleen 's ochtends beschikbaar";
+    case "avond":
+      return "alleen 's avonds beschikbaar";
+    case "niet-beschikbaar":
+      return "niet beschikbaar";
+    default:
+      return "nog niet ingevuld";
+  }
+}
+
+// Icoon in de cel; null wanneer de dag nog niet is ingevuld (dan tonen we "·").
+function StatusIcon({ status }: { status: AvailabilityStatus | undefined }) {
+  switch (status) {
+    case "beschikbaar":
+      return <Check className="h-4 w-4" aria-hidden />;
+    case "ochtend":
+      return <Sunrise className="h-4 w-4" aria-hidden />;
+    case "avond":
+      return <Sunset className="h-4 w-4" aria-hidden />;
+    case "niet-beschikbaar":
+      return <X className="h-4 w-4" aria-hidden />;
+    default:
+      return <span aria-hidden>·</span>;
+  }
 }
 
 export function PlanningAgenda() {
@@ -413,12 +473,7 @@ export function PlanningAgenda() {
                       const isOwn = person === name;
                       const base =
                         "mx-auto flex h-9 w-11 items-center justify-center rounded-md text-xs font-bold transition sm:h-7 sm:w-9";
-                      const look =
-                        status === "beschikbaar"
-                          ? "bg-emerald-100 text-emerald-700"
-                          : status === "niet-beschikbaar"
-                            ? "bg-red-100 text-red-600"
-                            : "bg-steel-100 text-steel-300";
+                      const look = statusLook(status);
                       return (
                         <td key={name} className="px-2 py-1.5 text-center">
                           {isOwn ? (
@@ -426,36 +481,25 @@ export function PlanningAgenda() {
                               type="button"
                               onClick={() => toggleCell(day.iso)}
                               disabled={loading}
-                              aria-label={`${name}, ${day.weekday} ${day.dayNumber}: ${
-                                status === "beschikbaar"
-                                  ? "beschikbaar"
-                                  : status === "niet-beschikbaar"
-                                    ? "niet beschikbaar"
-                                    : "nog niet ingevuld"
-                              }. Klik om te wijzigen.`}
+                              aria-label={`${name}, ${day.weekday} ${day.dayNumber}: ${statusText(
+                                status
+                              )}. Klik om te wijzigen.`}
                               className={`${base} ${look} ring-1 ring-inset ${
                                 status
                                   ? "ring-transparent"
                                   : "ring-steel-200"
                               } hover:ring-navy-400 disabled:cursor-wait`}
                             >
-                              {status === "beschikbaar" && (
-                                <Check className="h-4 w-4" aria-hidden />
-                              )}
-                              {status === "niet-beschikbaar" && (
-                                <X className="h-4 w-4" aria-hidden />
-                              )}
-                              {!status && "·"}
+                              <StatusIcon status={status} />
                             </button>
                           ) : (
-                            <span className={`${base} ${look}`}>
-                              {status === "beschikbaar" && (
-                                <Check className="h-4 w-4" aria-hidden />
-                              )}
-                              {status === "niet-beschikbaar" && (
-                                <X className="h-4 w-4" aria-hidden />
-                              )}
-                              {!status && "·"}
+                            <span
+                              className={`${base} ${look}`}
+                              aria-label={`${name}, ${day.weekday} ${day.dayNumber}: ${statusText(
+                                status
+                              )}`}
+                            >
+                              <StatusIcon status={status} />
                             </span>
                           )}
                         </td>
@@ -481,7 +525,19 @@ export function PlanningAgenda() {
           <span className="flex h-5 w-6 items-center justify-center rounded bg-emerald-100 text-emerald-700">
             <Check className="h-3 w-3" aria-hidden />
           </span>
-          Beschikbaar
+          Hele dag beschikbaar
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="flex h-5 w-6 items-center justify-center rounded bg-amber-100 text-amber-700">
+            <Sunrise className="h-3 w-3" aria-hidden />
+          </span>
+          Alleen ochtend
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="flex h-5 w-6 items-center justify-center rounded bg-violet-100 text-violet-700">
+            <Sunset className="h-3 w-3" aria-hidden />
+          </span>
+          Alleen avond
         </span>
         <span className="flex items-center gap-1.5">
           <span className="flex h-5 w-6 items-center justify-center rounded bg-red-100 text-red-600">
