@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { KeyRound, Loader2, Lock } from "lucide-react";
 
@@ -9,6 +9,13 @@ export function PlanningLogin() {
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Wachtwoordmanagers injecteren attributen/nodes in het formulier vóór
+  // React hydrateert. Server + eerste client-paint tonen daarom een skeleton;
+  // het echte formulier verschijnt pas na mount.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -32,6 +39,17 @@ export function PlanningLogin() {
       setError("Er ging iets mis. Controleer je verbinding en probeer opnieuw.");
       setBusy(false);
     }
+  }
+
+  if (!mounted) {
+    return (
+      <div className="mx-auto max-w-md">
+        <div className="flex items-center justify-center gap-2 rounded-2xl border border-steel-200 bg-white px-6 py-16 text-sm text-steel-500 shadow-card">
+          <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+          Laden…
+        </div>
+      </div>
+    );
   }
 
   return (

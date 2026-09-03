@@ -128,6 +128,12 @@ function StatusIcon({ status }: { status: AvailabilityStatus | undefined }) {
 
 export function PlanningAgenda() {
   const router = useRouter();
+  // De agenda hangt volledig af van de huidige datum, localStorage en een
+  // fetch - allemaal dingen die op de server anders (of niet) bestaan. Daarom
+  // renderen we server-side en bij de eerste client-paint een neutrale
+  // skeleton, en pas na mount de echte agenda. Zo kan er geen
+  // hydratie-mismatch ontstaan.
+  const [mounted, setMounted] = useState(false);
   const now = new Date();
   const [year, setYear] = useState(now.getFullYear());
   const [month, setMonth] = useState(now.getMonth()); // 0-11
@@ -143,6 +149,10 @@ export function PlanningAgenda() {
 
   const currentMonth = monthKey(year, month);
   const today = todayIso();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Naamkeuze onthouden op dit apparaat.
   useEffect(() => {
@@ -290,6 +300,17 @@ export function PlanningAgenda() {
       };
     });
   }, [year, month, currentMonth]);
+
+  // Server + eerste client-paint: neutrale skeleton, geen datum-afhankelijke
+  // opmaak. Voorkomt hydratie-mismatch.
+  if (!mounted) {
+    return (
+      <div className="flex items-center justify-center gap-2 rounded-2xl border border-steel-200 bg-white px-4 py-16 text-sm text-steel-500 shadow-card">
+        <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+        Planning laden…
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-5">
