@@ -17,7 +17,7 @@ type Town = {
 const TOWNS: Town[] = [
   { name: "Ouddorp", x: 248.1, y: 115.4, anchor: "middle", dy: 26 },
   { name: "Stellendam", x: 390.8, y: 115.4, anchor: "middle", dy: 26 },
-  { name: "Dirksland", x: 496, y: 182.3, anchor: "middle", dy: 26 },
+  { name: "Dirksland", x: 496, y: 300, anchor: "middle", dy: 26 },
   {
     name: "Middelharnis",
     x: 600.1,
