@@ -14,6 +14,17 @@ import { company } from "@/data/company";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 
+// Max. 3 projecten op de homepage: de nieuwste klussen + het dakproject.
+const HOME_PROJECTS = [
+  "grind-van-dak-halen",
+  "tuinhuisje-slopen-ouddorp",
+  "dak-eraf-stad-aant-haringvliet",
+];
+
+const homeProjects = HOME_PROJECTS.map((slug) =>
+  projects.find((p) => p.slug === slug),
+).filter((p): p is (typeof projects)[number] => Boolean(p));
+
 const valuePillars = [
   {
     icon: Wallet,
@@ -131,7 +142,7 @@ export default function HomePage() {
           </Reveal>
 
           <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.slice(0, 3).map((project, i) => (
+            {homeProjects.map((project, i) => (
               <Reveal key={project.slug} delay={i * 90} className="h-full">
                 <ProjectCard project={project} />
               </Reveal>

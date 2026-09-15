@@ -10,13 +10,13 @@ export type HeroSlide = {
 
 export const heroEyebrow = "Recent uitgevoerd";
 
-// Projecten 1 t/m 5 in de hero (woningontruiming valt erbuiten).
+// Projecten 1 t/m 5 in de hero (oudere klussen vallen erbuiten).
 const HERO_PROJECTS = [
   "dak-eraf-stad-aant-haringvliet",
   "muren-slopen-huis-stellendam",
-  "tuin-terrein-middelharnis",
-  "fundering-schuur-middelharnis",
   "verbouwing-woning-ouddorp",
+  "grind-van-dak-halen",
+  "tuinhuisje-slopen-ouddorp",
 ];
 
 const heroProjects = HERO_PROJECTS.map((slug) =>

@@ -121,48 +121,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "tuin-terrein-middelharnis",
-    number: "03",
-    title: "Terrein opgehoogd langs het water",
-    location: "Middelharnis",
-    scope: "Grondwerk",
-    description:
-      "Een achterterrein langs het water moest worden opgehoogd om te voorkomen dat de schuur richting het water zou wegzakken. Met kruiwagens hebben we grond verplaatst en aangebracht op de plekken die extra versteviging nodig hadden. Zo staat de schuur weer stevig en hoeft de eigenaar zich geen zorgen meer te maken dat de grond wegzakt.",
-    result: "Schuur weer stevig - geen risico meer dat de grond wegzakt.",
-    photos: [
-      {
-        src: "/images/projects/tuin-terrein-middelharnis/1.jpeg",
-        alt: "Vier jongens hogen met kruiwagens en schoppen een achterterrein langs het water op in Middelharnis.",
-      },
-      {
-        src: "/images/projects/tuin-terrein-middelharnis/2.jpeg",
-        alt: "Grond wordt met de kruiwagen verplaatst en aangebracht om het terrein te verstevigen.",
-      },
-    ],
-  },
-  {
-    slug: "fundering-schuur-middelharnis",
-    number: "04",
-    title: "Betonnen fundering gesloopt",
-    location: "Middelharnis",
-    scope: "Betonsloop",
-    description:
-      "De betonnen fundering van een oude schuur eruit gesloopt en helemaal opgeruimd. Met breekwerk hebben we het beton in stukken gehaald, de brokken in de container geladen en afgevoerd. Wat overbleef was een schoon, vlak terrein - klaar voor wat er ook komt.",
-    result: "Fundering verwijderd en terrein klaargemaakt voor de volgende stap.",
-    photos: [
-      {
-        src: "/images/projects/fundering-schuur-middelharnis/1.jpeg",
-        alt: "Het terrein naast de schuur is leeg en vlak nadat de betonnen fundering is verwijderd in Middelharnis.",
-      },
-      {
-        src: "/images/projects/fundering-schuur-middelharnis/2.jpeg",
-        alt: "Container vol gesloopt betonpuin naast de schuur, brokken van de oude fundering opgestapeld.",
-      },
-    ],
-  },
-  {
     slug: "verbouwing-woning-ouddorp",
-    number: "05",
+    number: "03",
     title: "Verbouwing woning",
     location: "Ouddorp",
     scope: "Sloop & verbouwing",
@@ -193,8 +153,124 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "woningontruiming-middelharnis",
+    slug: "grind-van-dak-halen",
+    number: "04",
+    title: "Grind van plat dak gehaald",
+    location: "Goeree-Overflakkee",
+    scope: "Dakwerk",
+    description:
+      "Al het grind van een plat dak geschept en via een buis naar beneden gebracht. Daarna het dak schoongespoten.",
+    result: "Dak leeg en schoon.",
+    photos: [
+      {
+        src: "/images/projects/grind-van-dak-halen/f1330ad9-a2aa-48ce-90aa-40917420133a.jpg",
+        alt: "Plat dak vol grind voordat het werk begint.",
+      },
+      {
+        src: "/images/projects/grind-van-dak-halen/b948e29e-87ff-4bed-8f36-5265e9bae35d.jpg",
+        alt: "Grind wordt van het platte dak in emmers geschept.",
+      },
+      {
+        src: "/images/projects/grind-van-dak-halen/06c47098-4fb1-4dd7-8637-065ac6aa597f.jpg",
+        alt: "Grind scheppen op het platte dak.",
+      },
+      {
+        src: "/images/projects/grind-van-dak-halen/243bebb5-708c-4702-ad0e-f8b761147604.jpg",
+        alt: "Emmer grind wordt in een buis naar beneden gestort.",
+      },
+      {
+        src: "/images/projects/grind-van-dak-halen/a2a047ec-6c3b-4ec6-b66e-a970b3a32959.jpg",
+        alt: "Buis vanaf het dak laat het grind in een kruiwagen lopen.",
+      },
+      {
+        src: "/images/projects/grind-van-dak-halen/8a044634-ceaa-40f3-baf8-dbba5ea621b0.jpg",
+        alt: "Dak bijna leeg, laatste grind in emmers.",
+      },
+      {
+        src: "/images/projects/grind-van-dak-halen/5d6dd0a1-013f-4ae9-a5d0-25e607c45e9c.jpg",
+        alt: "Het lege dak wordt schoongespoten.",
+      },
+      {
+        src: "/images/projects/grind-van-dak-halen/bd2bd3fe-4d46-4ba6-a7f1-2139648085d7.jpg",
+        alt: "Schoon plat dak zonder grind.",
+      },
+      {
+        src: "/images/projects/grind-van-dak-halen/2a604b80-250f-438c-ba7a-d9f397abef23.jpg",
+        alt: "Ander zicht op het schone, lege dak.",
+      },
+    ],
+  },
+  {
+    slug: "tuinhuisje-slopen-ouddorp",
+    number: "05",
+    title: "Tuinhuisje gesloopt",
+    location: "Ouddorp",
+    scope: "Sloopwerk",
+    description:
+      "Een houten tuinhuisje gesloopt en het hout met de aanhanger afgevoerd.",
+    result: "Tuinhuisje weg, plek netjes leeg.",
+    photos: [
+      {
+        src: "/images/projects/tuinhuisje-slopen-ouddorp/2b6dabea-1cd3-44a4-9c04-01d53622db9b-2.jpg",
+        alt: "Het dak van een houten tuinhuisje wordt gesloopt in Ouddorp.",
+      },
+      {
+        src: "/images/projects/tuinhuisje-slopen-ouddorp/99e21b8d-2b31-4d81-859f-b2c44a993f17.jpg",
+        alt: "Aanhanger vol sloophout van het tuinhuisje.",
+      },
+      {
+        src: "/images/projects/tuinhuisje-slopen-ouddorp/6dbe2079-785a-4041-96c1-5580aaef1afe.jpg",
+        alt: "Sloophout op de aanhanger klaar voor afvoer.",
+      },
+      {
+        src: "/images/projects/tuinhuisje-slopen-ouddorp/4b9e417e-438d-4133-b8f0-1a375d997f05.jpg",
+        alt: "Lege plek in de tuin waar het tuinhuisje stond.",
+      },
+    ],
+  },
+  {
+    slug: "tuin-terrein-middelharnis",
     number: "06",
+    title: "Terrein opgehoogd langs het water",
+    location: "Middelharnis",
+    scope: "Grondwerk",
+    description:
+      "Een achterterrein langs het water moest worden opgehoogd om te voorkomen dat de schuur richting het water zou wegzakken. Met kruiwagens hebben we grond verplaatst en aangebracht op de plekken die extra versteviging nodig hadden. Zo staat de schuur weer stevig en hoeft de eigenaar zich geen zorgen meer te maken dat de grond wegzakt.",
+    result: "Schuur weer stevig - geen risico meer dat de grond wegzakt.",
+    photos: [
+      {
+        src: "/images/projects/tuin-terrein-middelharnis/1.jpeg",
+        alt: "Vier jongens hogen met kruiwagens en schoppen een achterterrein langs het water op in Middelharnis.",
+      },
+      {
+        src: "/images/projects/tuin-terrein-middelharnis/2.jpeg",
+        alt: "Grond wordt met de kruiwagen verplaatst en aangebracht om het terrein te verstevigen.",
+      },
+    ],
+  },
+  {
+    slug: "fundering-schuur-middelharnis",
+    number: "07",
+    title: "Betonnen fundering gesloopt",
+    location: "Middelharnis",
+    scope: "Betonsloop",
+    description:
+      "De betonnen fundering van een oude schuur eruit gesloopt en helemaal opgeruimd. Met breekwerk hebben we het beton in stukken gehaald, de brokken in de container geladen en afgevoerd. Wat overbleef was een schoon, vlak terrein - klaar voor wat er ook komt.",
+    result: "Fundering verwijderd en terrein klaargemaakt voor de volgende stap.",
+    photos: [
+      {
+        src: "/images/projects/fundering-schuur-middelharnis/1.jpeg",
+        alt: "Het terrein naast de schuur is leeg en vlak nadat de betonnen fundering is verwijderd in Middelharnis.",
+      },
+      {
+        src: "/images/projects/fundering-schuur-middelharnis/2.jpeg",
+        alt: "Container vol gesloopt betonpuin naast de schuur, brokken van de oude fundering opgestapeld.",
+      },
+    ],
+  },
+  {
+    slug: "woningontruiming-middelharnis",
+    number: "08",
     title: "Woning leeggehaald",
     location: "Middelharnis",
     scope: "Ontruiming",
