@@ -201,8 +201,60 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "tuinhuisje-slopen-ouddorp",
+    slug: "vloer-tegels-eruit-woning",
     number: "05",
+    title: "Tegelvloer verwijderd",
+    location: "Oosterland",
+    scope: "Sloopwerk",
+    description:
+      "In een woning de complete tegelvloer eruit gehaald - in de gang, de hal bij de voordeur, het toilet en de kamers. Met breekhamers hebben we de tegels losgehakt, ook langs de muren en in de krappe hoeken. Het puin is met kruiwagens naar buiten gebracht en afgevoerd, zodat de ondervloer kaal en klaar was voor een nieuwe vloer.",
+    result: "Tegels volledig verwijderd en ondervloer klaar voor de nieuwe vloer.",
+    photos: [
+      {
+        src: "/images/projects/vloer-tegels-eruit-woning/80217aec-a3f8-484d-8f03-eafe24fc68d0.jpg",
+        alt: "Tegelvloer wordt met een breekhamer losgehakt langs een bakstenen muur in een woning in Oosterland.",
+      },
+      {
+        src: "/images/projects/vloer-tegels-eruit-woning/7c67ca83-d70e-4445-b48f-488431e4b567.jpg",
+        alt: "Tegels worden langs de plint en deurpost weggebroken.",
+      },
+      {
+        src: "/images/projects/vloer-tegels-eruit-woning/048b1621-1483-4bd7-a4f6-69889564cf03.jpg",
+        alt: "Breekwerk aan de tegelvloer in de gang, gebroken tegels verzamelen zich op de vloer.",
+      },
+      {
+        src: "/images/projects/vloer-tegels-eruit-woning/7ed0b77e-15b1-4797-b87b-9196246973a6.jpg",
+        alt: "Tegels worden in een hoek van de hal losgehakt.",
+      },
+      {
+        src: "/images/projects/vloer-tegels-eruit-woning/cb1f0127-88ba-4ba0-a36f-42dedb495349.jpg",
+        alt: "Laatste tegelresten worden in een smalle gang weggehakt.",
+      },
+      {
+        src: "/images/projects/vloer-tegels-eruit-woning/d8476646-0e85-4d10-b421-1d1a787bd581.jpg",
+        alt: "Tegelvloer wordt voor de deur van het toilet verwijderd.",
+      },
+      {
+        src: "/images/projects/vloer-tegels-eruit-woning/60112e15-ef04-4232-ab89-e7ac0c188de2.jpg",
+        alt: "Tegels worden tot in de hoek van een kamer losgebroken.",
+      },
+      {
+        src: "/images/projects/vloer-tegels-eruit-woning/115d4ddb-a266-42ce-9d28-3410ca9dcaae.jpg",
+        alt: "Hal bij de voordeur vol gebroken tegels, puin wordt met de kruiwagen afgevoerd.",
+      },
+      {
+        src: "/images/projects/vloer-tegels-eruit-woning/ad52967b-cf7f-468b-b333-773409527128.jpg",
+        alt: "Overzicht van de hal met tegelpuin en kruiwagen tijdens het sloopwerk.",
+      },
+      {
+        src: "/images/projects/vloer-tegels-eruit-woning/c0396000-3f20-474f-a53d-7bc8c45be1cd.jpg",
+        alt: "Kale ondervloer nadat alle tegels zijn verwijderd.",
+      },
+    ],
+  },
+  {
+    slug: "tuinhuisje-slopen-ouddorp",
+    number: "06",
     title: "Tuinhuisje gesloopt",
     location: "Ouddorp",
     scope: "Sloopwerk",
@@ -230,7 +282,7 @@ export const projects: Project[] = [
   },
   {
     slug: "tuin-terrein-middelharnis",
-    number: "06",
+    number: "07",
     title: "Terrein opgehoogd langs het water",
     location: "Middelharnis",
     scope: "Grondwerk",
@@ -250,7 +302,7 @@ export const projects: Project[] = [
   },
   {
     slug: "fundering-schuur-middelharnis",
-    number: "07",
+    number: "08",
     title: "Betonnen fundering gesloopt",
     location: "Middelharnis",
     scope: "Betonsloop",
@@ -270,7 +322,7 @@ export const projects: Project[] = [
   },
   {
     slug: "woningontruiming-middelharnis",
-    number: "08",
+    number: "09",
     title: "Woning leeggehaald",
     location: "Middelharnis",
     scope: "Ontruiming",
