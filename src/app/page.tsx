@@ -54,7 +54,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-container gap-10 px-5 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-14 lg:py-24">
           <Reveal>
             <div className="overflow-hidden border border-steel-200">
-              <TeamPhoto />
+              <TeamPhoto src="/images/algemeen/kvk.jpg" />
             </div>
           </Reveal>
 

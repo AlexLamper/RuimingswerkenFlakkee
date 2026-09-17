@@ -47,7 +47,7 @@ export const company = {
   ],
   hoursNote:
     "Op aanvraag vinden we vrijwel altijd een plekje - behalve op zondag.",
-  kvk: "KvK in oprichting",
+  kvk: "42167049",
   url: "https://www.ruimingswerkenflakkee.nl",
   instagram: "https://www.instagram.com/ruimingswerkenflakkee",
   // Sociale profielen (versterkt vindbaarheid/E-E-A-T via sameAs).
