@@ -42,3 +42,9 @@ next-env.d.ts.bak
 # editor
 .vscode/
 .idea/
+
+# local design assets (not used by site)
+/public/flyers/
+/public/kleding-designs/
+/public/1b-voorkant.png
+/public/zip-trui.png
