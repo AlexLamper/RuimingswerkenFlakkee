@@ -7,7 +7,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Loader2,
-  LogOut,
   Sunrise,
   Sunset,
   X,
@@ -17,25 +16,12 @@ import {
   type AvailabilityStatus,
   type PlanningPerson,
 } from "@/data/planning";
-
-const MONTH_NAMES = [
-  "januari",
-  "februari",
-  "maart",
-  "april",
-  "mei",
-  "juni",
-  "juli",
-  "augustus",
-  "september",
-  "oktober",
-  "november",
-  "december",
-];
-
-const WEEKDAY_SHORT = ["zo", "ma", "di", "wo", "do", "vr", "za"];
-
-const PERSON_STORAGE_KEY = "planning_person";
+import {
+  MONTH_NAMES,
+  WEEKDAY_SHORT,
+  pad,
+  todayIso,
+} from "@/lib/planning-dates";
 
 type Entry = {
   person: PlanningPerson;
@@ -45,17 +31,8 @@ type Entry = {
 
 type SaveState = "idle" | "saving" | "saved" | "error";
 
-function pad(value: number): string {
-  return String(value).padStart(2, "0");
-}
-
 function monthKey(year: number, month: number): string {
   return `${year}-${pad(month + 1)}`;
-}
-
-function todayIso(): string {
-  const now = new Date();
-  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 }
 
 // Cyclus bij klikken:
@@ -125,14 +102,21 @@ function StatusIcon({ status }: { status: AvailabilityStatus | undefined }) {
   }
 }
 
-export function PlanningAgenda({ onLoggedOut }: { onLoggedOut: () => void }) {
+// Beschikbaarheidsrooster: per dag × persoon. Alleen de eigen kolom (van de
+// gekozen naam) is aan te passen.
+export function PlanningAgenda({
+  person,
+  onLoggedOut,
+}: {
+  person: PlanningPerson | null;
+  onLoggedOut: () => void;
+}) {
   const now = new Date();
   const [year, setYear] = useState(now.getFullYear());
   const [month, setMonth] = useState(now.getMonth()); // 0-11
   const [entries, setEntries] = useState<Map<string, AvailabilityStatus>>(
     new Map()
   );
-  const [person, setPerson] = useState<PlanningPerson | null>(null);
   const [loading, setLoading] = useState(true);
   const [saveState, setSaveState] = useState<SaveState>("idle");
   const [error, setError] = useState<string | null>(null);
@@ -141,19 +125,6 @@ export function PlanningAgenda({ onLoggedOut }: { onLoggedOut: () => void }) {
 
   const currentMonth = monthKey(year, month);
   const today = todayIso();
-
-  // Naamkeuze onthouden op dit apparaat.
-  useEffect(() => {
-    const stored = window.localStorage.getItem(PERSON_STORAGE_KEY);
-    if (stored && (planningPeople as readonly string[]).includes(stored)) {
-      setPerson(stored as PlanningPerson);
-    }
-  }, []);
-
-  function choosePerson(name: PlanningPerson) {
-    setPerson(name);
-    window.localStorage.setItem(PERSON_STORAGE_KEY, name);
-  }
 
   const loadMonth = useCallback(async (key: string) => {
     setLoading(true);
@@ -258,11 +229,6 @@ export function PlanningAgenda({ onLoggedOut }: { onLoggedOut: () => void }) {
     }
   }
 
-  async function handleLogout() {
-    await fetch("/api/planning/logout", { method: "POST" });
-    onLoggedOut();
-  }
-
   // Eigen kolom vooraan zodat je op mobiel niet hoeft te scrollen om je
   // eigen beschikbaarheid in te vullen.
   const orderedPeople = useMemo(
@@ -291,32 +257,6 @@ export function PlanningAgenda({ onLoggedOut }: { onLoggedOut: () => void }) {
 
   return (
     <div className="space-y-5">
-      {/* Naamkeuze */}
-      <div className="rounded-2xl border border-steel-200 bg-white p-4 shadow-card sm:p-5">
-        <p className="text-sm font-semibold text-navy-900">Wie ben jij?</p>
-        <p className="mt-0.5 text-xs text-steel-500">
-          Kies je naam; jouw kolom komt dan vooraan te staan en kun je invullen
-          door op een dag te tikken.
-        </p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {planningPeople.map((name) => (
-            <button
-              key={name}
-              type="button"
-              onClick={() => choosePerson(name)}
-              aria-pressed={person === name}
-              className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition ${
-                person === name
-                  ? "border-navy-800 bg-navy-800 text-white"
-                  : "border-steel-300 bg-white text-steel-700 hover:border-navy-400 hover:text-navy-800"
-              }`}
-            >
-              {name}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Maandnavigatie + status */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-1.5">
@@ -375,14 +315,6 @@ export function PlanningAgenda({ onLoggedOut }: { onLoggedOut: () => void }) {
               </>
             )}
           </span>
-          <button
-            type="button"
-            onClick={handleLogout}
-            className="flex items-center gap-1.5 rounded-lg border border-steel-300 bg-white px-3 py-1.5 text-sm font-medium text-steel-700 transition hover:border-navy-400 hover:text-navy-800"
-          >
-            <LogOut className="h-3.5 w-3.5" aria-hidden />
-            Uitloggen
-          </button>
         </div>
       </div>
 
@@ -398,7 +330,7 @@ export function PlanningAgenda({ onLoggedOut }: { onLoggedOut: () => void }) {
 
       {!person && (
         <div className="rounded-xl border border-navy-100 bg-navy-50 px-4 py-3 text-sm text-navy-800">
-          Kies eerst je naam hierboven om je beschikbaarheid in te vullen. Je
+          Kies eerst je naam bovenaan om je beschikbaarheid in te vullen. Je
           kunt de planning van iedereen wel bekijken.
         </div>
       )}

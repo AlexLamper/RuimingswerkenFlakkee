@@ -2,6 +2,13 @@ import { NextResponse } from "next/server";
 import { hasPlanningAccess } from "@/lib/planning-auth";
 import { getDb, isDatabaseConfigured } from "@/lib/mongodb";
 import {
+  DATE_RE,
+  badRequest,
+  databaseUnavailable,
+  serverError,
+  unauthorized,
+} from "@/lib/planning-api";
+import {
   isAvailabilityStatus,
   isPlanningPerson,
   type AvailabilityStatus,
@@ -9,7 +16,6 @@ import {
 
 const COLLECTION = "planning_availability";
 const MONTH_RE = /^\d{4}-(0[1-9]|1[0-2])$/;
-const DATE_RE = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
 
 type AvailabilityDoc = {
   person: string;
@@ -18,30 +24,13 @@ type AvailabilityDoc = {
   updatedAt: Date;
 };
 
-function unauthorized() {
-  return NextResponse.json({ error: "Geen toegang." }, { status: 401 });
-}
-
-function databaseUnavailable() {
-  return NextResponse.json(
-    {
-      error:
-        "Database is nog niet gekoppeld (MONGODB_URI ontbreekt). Wijzigingen kunnen niet worden opgeslagen.",
-    },
-    { status: 503 }
-  );
-}
-
 // GET /api/planning/availability?month=YYYY-MM
 export async function GET(request: Request) {
   if (!(await hasPlanningAccess())) return unauthorized();
 
   const month = new URL(request.url).searchParams.get("month") ?? "";
   if (!MONTH_RE.test(month)) {
-    return NextResponse.json(
-      { error: "Ongeldige maand, verwacht YYYY-MM." },
-      { status: 400 }
-    );
+    return badRequest("Ongeldige maand, verwacht YYYY-MM.");
   }
   if (!isDatabaseConfigured()) return databaseUnavailable();
 
@@ -57,10 +46,7 @@ export async function GET(request: Request) {
     return NextResponse.json({ entries: docs });
   } catch (error) {
     console.error("Planning ophalen mislukt:", error);
-    return NextResponse.json(
-      { error: "Ophalen uit de database mislukt. Probeer het opnieuw." },
-      { status: 500 }
-    );
+    return serverError("Ophalen uit de database mislukt. Probeer het opnieuw.");
   }
 }
 
@@ -75,7 +61,7 @@ export async function PUT(request: Request) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ error: "Ongeldige aanvraag." }, { status: 400 });
+    return badRequest();
   }
 
   const { person, date, status } = (body ?? {}) as {
@@ -90,16 +76,13 @@ export async function PUT(request: Request) {
     !DATE_RE.test(date) ||
     (status !== null && !isAvailabilityStatus(status))
   ) {
-    return NextResponse.json({ error: "Ongeldige aanvraag." }, { status: 400 });
+    return badRequest();
   }
 
   // Op zondag wordt nooit gewerkt; die dag staat vast op "niet beschikbaar"
   // en is dus ook via de API niet aan te passen.
   if (new Date(`${date}T00:00:00Z`).getUTCDay() === 0) {
-    return NextResponse.json(
-      { error: "Op zondag wordt niet gewerkt; deze dag ligt vast." },
-      { status: 400 }
-    );
+    return badRequest("Op zondag wordt niet gewerkt; deze dag ligt vast.");
   }
   if (!isDatabaseConfigured()) return databaseUnavailable();
 
@@ -117,9 +100,6 @@ export async function PUT(request: Request) {
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Planning opslaan mislukt:", error);
-    return NextResponse.json(
-      { error: "Opslaan in de database mislukt. Probeer het opnieuw." },
-      { status: 500 }
-    );
+    return serverError("Opslaan in de database mislukt. Probeer het opnieuw.");
   }
 }

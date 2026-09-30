@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
-import { PlanningAgenda } from "./PlanningAgenda";
+import { PlanningShell } from "./PlanningShell";
 import { PlanningLogin } from "./PlanningLogin";
 
 type GateState = "loading" | "in" | "out";
@@ -39,7 +39,7 @@ export function PlanningGate() {
   }
 
   return state === "in" ? (
-    <PlanningAgenda onLoggedOut={handleLoggedOut} />
+    <PlanningShell onLoggedOut={handleLoggedOut} />
   ) : (
     <PlanningLogin onSuccess={handleSuccess} />
   );
