@@ -5,7 +5,6 @@ export const planningPeople = [
   "Jouke",
   "Maarten",
   "Niels",
-  "Martijn",
   "Jason",
 ] as const;
 
