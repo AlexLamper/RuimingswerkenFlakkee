@@ -41,8 +41,13 @@ export function toPlanningItem(doc: WithId<PlanningItemDoc>): PlanningItem {
     endDate: doc.endDate,
     startTime: doc.startTime,
     endTime: doc.endTime,
-    people: doc.people ?? [],
-    responses: doc.responses ?? {},
+    // Namen die niet meer in het team zitten weglaten, anders faalt het
+    // opslaan van een bestaand item op de validatie.
+    people: (doc.people ?? []).filter(isPlanningPerson),
+    responses: keepResponsesOf(
+      doc.responses ?? {},
+      (doc.people ?? []).filter(isPlanningPerson)
+    ),
     notes: doc.notes,
   };
 }
