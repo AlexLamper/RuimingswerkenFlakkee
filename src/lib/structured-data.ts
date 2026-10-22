@@ -52,6 +52,10 @@ export function localBusinessSchema() {
     logo: LOGO_URL,
     priceRange: company.priceRange,
     currenciesAccepted: "EUR",
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      value: company.teamSize,
+    },
     address: postalAddress(),
     geo: {
       "@type": "GeoCoordinates",
@@ -85,6 +89,10 @@ function organizationSchema() {
     name: company.legalName,
     url: BASE,
     logo: LOGO_URL,
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      value: company.teamSize,
+    },
     ...(company.sameAs.length ? { sameAs: company.sameAs } : {}),
   };
 }

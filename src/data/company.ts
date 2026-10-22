@@ -14,6 +14,9 @@ export const company = {
   description:
     "Sloopbedrijf op Goeree-Overflakkee voor sloopwerken, ruiming, ontruiming, demontage, betonsloop en terreinsanering. Vrijblijvende offerte, snelle service en netjes opgeleverd.",
   region: "Goeree-Overflakkee en omgeving",
+  // Huidige teamgrootte. Enige bron van waarheid voor teksten en structured
+  // data; pas dit aan als iemand erbij komt of vertrekt.
+  teamSize: 6,
   email: "info@ruimingswerkenflakkee.nl",
   emailHref: "mailto:info@ruimingswerkenflakkee.nl",
   phone: "06 13 521 839",

@@ -46,8 +46,9 @@ export default function OverOnsPage() {
             </h2>
             <div className="mt-5 space-y-5 text-base leading-relaxed text-steel-700">
               <p>
-                {company.name} is begonnen met zeven vrienden die graag de
-                handen uit de mouwen steken. We zijn een jong team dat houdt van
+                {company.name} is begonnen met een groep vrienden die graag de
+                handen uit de mouwen steken. Vandaag staan we met{" "}
+                {company.teamSize} man klaar: een jong team dat houdt van
                 aanpakken en ondernemen.
               </p>
               <p>
