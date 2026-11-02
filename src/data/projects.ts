@@ -144,7 +144,7 @@ export const projects: Project[] = [
     slug: "materiaalstelling-opbouwen",
     number: "03",
     title: "IJzeren materiaalstelling opgebouwd",
-    location: "Goeree-Overflakkee",
+    location: "Stad aan 't Haringvliet",
     scope: "Montage",
     description:
       "Op een bedrijfsterrein een rij grote ijzeren materiaalstellingen opgebouwd voor de opslag van lange materialen. De zware staanders hebben we met de heftruck rechtop gezet en uitgelijnd, daarna de armen gemonteerd en alles stevig vastgezet. Zo staat er nu een overzichtelijke stelling waar het materiaal weer netjes op kan.",
@@ -152,7 +152,7 @@ export const projects: Project[] = [
     photos: [
       {
         src: "/images/projects/materiaalstelling-opbouwen/1.jpg",
-        alt: "Onderdelen van de ijzeren stelling liggen klaar op het bedrijfsterrein.",
+        alt: "Onderdelen van de ijzeren stelling liggen klaar op het bedrijfsterrein in Stad aan 't Haringvliet.",
       },
       {
         src: "/images/projects/materiaalstelling-opbouwen/2.jpg",
@@ -228,7 +228,7 @@ export const projects: Project[] = [
     slug: "tegels-gang-verwijderen",
     number: "05",
     title: "Wand- en vloertegels in gang verwijderd",
-    location: "Goeree-Overflakkee",
+    location: "Middelharnis",
     scope: "Sloopwerk",
     description:
       "In de smalle gang van een woning zowel de oude wandtegels als de vloertegels eruit gehakt. Met de breekhamer hebben we de tegels van de muren en de vloer gehaald, het puin in kratten verzameld en afgevoerd. Daarna was de gang klaar voor een nieuwe afwerking.",
@@ -236,7 +236,7 @@ export const projects: Project[] = [
     photos: [
       {
         src: "/images/projects/tegels-gang-verwijderen/1.jpg",
-        alt: "Tegels worden in een smalle gang van de muur en de vloer gehakt, puin wordt in een krat verzameld.",
+        alt: "Tegels worden in een smalle gang in Middelharnis van de muur en de vloer gehakt, puin wordt in een krat verzameld.",
       },
       {
         src: "/images/projects/tegels-gang-verwijderen/2.jpg",
