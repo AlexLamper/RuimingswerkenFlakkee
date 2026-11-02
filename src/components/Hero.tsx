@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BadgeEuro, Mail } from "lucide-react";
+import { BadgeCheck, Mail } from "lucide-react";
 import { company } from "@/data/company";
 import { HeroVisual } from "./HeroVisual";
 
@@ -18,8 +18,8 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-container items-center gap-10 px-5 py-12 sm:gap-12 sm:px-6 sm:py-16 lg:grid-cols-[1.25fr_1fr] lg:gap-14 lg:py-20">
         <div>
           <span className="inline-flex items-center gap-2 rounded-sm bg-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-navy-900 shadow-card sm:text-xs">
-            <BadgeEuro className="h-4 w-4" aria-hidden />
-            Goedkoopste van Flakkee
+            <BadgeCheck className="h-4 w-4" aria-hidden />
+            Eerlijke prijs - Netjes opgeleverd
           </span>
           <h1 className="mt-6 text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl xl:text-[3.5rem]">
             Even een paar extra handjes nodig?

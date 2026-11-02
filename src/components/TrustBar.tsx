@@ -2,7 +2,7 @@ import { CheckCircle2 } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const points = [
-  "Goedkoopste van Flakkee",
+  "Eerlijke, scherpe prijs - geen dure tussenpartij",
   "Snel geregeld - vaak op korte termijn op locatie",
   "Persoonlijk: één vast aanspreekpunt, korte lijnen",
   "Vrijblijvende offerte binnen 48 uur",

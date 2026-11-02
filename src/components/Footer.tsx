@@ -4,6 +4,7 @@ import { Mail, Phone } from "lucide-react";
 import { company } from "@/data/company";
 import { mainNav } from "@/data/navigation";
 import { services } from "@/data/services";
+import { SocialLinks } from "./SocialLinks";
 
 export function Footer() {
   return (
@@ -31,6 +32,7 @@ export function Footer() {
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-steel-300">
               {company.slogan}. Actief in {company.region}.
             </p>
+            <SocialLinks variant="dark" className="mt-5" />
           </div>
 
           <div>

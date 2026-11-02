@@ -91,7 +91,10 @@ export default function OverOnsPage() {
           <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-14">
             <Reveal>
               <div className="overflow-hidden border border-steel-200">
-                <TeamPhoto src="/images/algemeen/kvk.jpg" />
+                <TeamPhoto
+                  src="/images/algemeen/teamfoto.jpg"
+                  className="aspect-square object-[50%_68%]"
+                />
               </div>
             </Reveal>
             <Reveal delay={100}>

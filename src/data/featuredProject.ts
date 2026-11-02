@@ -15,12 +15,12 @@ const PHOTOS_PER_PROJECT = 2;
 // Projecten in de hero (oudere klussen vallen erbuiten).
 // Optioneel `photos` om minder foto's van een klus te tonen.
 const HERO_PROJECTS: { slug: string; photos?: number }[] = [
+  { slug: "schuur-binnenkant-demonteren" },
+  { slug: "materiaalstelling-opbouwen" },
+  { slug: "klusjes-woning" },
   { slug: "dak-eraf-stad-aant-haringvliet" },
   { slug: "muren-slopen-huis-stellendam" },
-  { slug: "verbouwing-woning-ouddorp" },
   { slug: "grind-van-dak-halen" },
-  { slug: "vloer-tegels-eruit-woning", photos: 1 },
-  { slug: "tuinhuisje-slopen-ouddorp" },
 ];
 
 const heroProjects = HERO_PROJECTS.flatMap(({ slug, photos }) => {

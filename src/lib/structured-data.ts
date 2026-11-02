@@ -1,4 +1,4 @@
-import { company } from "@/data/company";
+import { company, sameAs } from "@/data/company";
 import { faqs } from "@/data/faq";
 import { services } from "@/data/services";
 
@@ -64,7 +64,7 @@ export function localBusinessSchema() {
     },
     areaServed: areaServed(),
     openingHoursSpecification: openingHours(),
-    ...(company.sameAs.length ? { sameAs: company.sameAs } : {}),
+    ...(sameAs.length ? { sameAs } : {}),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Sloop- en ruimingswerkzaamheden",
@@ -93,7 +93,7 @@ function organizationSchema() {
       "@type": "QuantitativeValue",
       value: company.teamSize,
     },
-    ...(company.sameAs.length ? { sameAs: company.sameAs } : {}),
+    ...(sameAs.length ? { sameAs } : {}),
   };
 }
 

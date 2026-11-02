@@ -17,8 +17,236 @@ export type Project = {
 // Echte, uitgevoerde klussen - per klus gegroepeerd met eigen foto's.
 export const projects: Project[] = [
   {
-    slug: "dak-eraf-stad-aant-haringvliet",
+    slug: "schuur-binnenkant-demonteren",
     number: "01",
+    title: "Schuur van binnen gestript",
+    location: "Goeree-Overflakkee",
+    scope: "Demontage",
+    description:
+      "Een grote, oude schuur in meerdere dagen volledig van binnen gedemonteerd. Eerst hebben we het losse zaagsel van de vloer en de zolder geschept en afgevoerd. Daarna gingen de houten zoldervloer, het wandbeschot en de binnenwanden er stuk voor stuk uit, met ladders en een heftruck voor het hoge en zware werk. Al het hout is in big bags en containers verzameld en afgevoerd, zodat alleen de kale constructie overbleef.",
+    result: "Schuur volledig leeg tot op de constructie, klaar voor een nieuwe invulling.",
+    photos: [
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/1.jpg",
+        alt: "Twee jongens scheppen zaagsel van de vloer bij de deur van een oude schuur.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/2.jpg",
+        alt: "Het losse zaagsel wordt bij elkaar geveegd en geschept.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/3.jpg",
+        alt: "Overzicht van de schuur met zaagsel op de vloer en een big bag om het af te voeren.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/4.jpg",
+        alt: "Zolder van de schuur vol zaagsel en stof voordat het werk begint.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/5.jpg",
+        alt: "Hopen zaagsel op de zolder worden weggeschept.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/6.jpg",
+        alt: "Houten zoldervloer en betimmering worden losgehaald.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/7.jpg",
+        alt: "De zolder bijna leeg, de balken komen bloot te liggen.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/8.jpg",
+        alt: "Werken op de zolder met zicht op de container in de schuur eronder.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/9.jpg",
+        alt: "Ander zicht op de zolder tijdens het demonteren.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/10.jpg",
+        alt: "Vanaf de ladder wordt het wandbeschot hoog in de schuur losgehaald.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/11.jpg",
+        alt: "Houten binnenwanden worden plank voor plank gedemonteerd.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/12.jpg",
+        alt: "Een heftruck helpt bij het neerhalen van de grote houten wanden.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/13.jpg",
+        alt: "Gedemonteerde wanden liggen klaar om afgevoerd te worden.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/14.jpg",
+        alt: "Big bag vol sloophout, verzameld voor afvoer.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/15.jpg",
+        alt: "Overzicht van de schuur terwijl de binnenwanden eruit gaan.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/16.jpg",
+        alt: "De houten constructie van de schuur komt steeds verder bloot.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/17.jpg",
+        alt: "Hout wordt opgeruimd en met de kruiwagen afgevoerd.",
+      },
+      {
+        src: "/images/projects/schuur-binnenkant-demonteren/18.jpg",
+        alt: "De schuur van binnen bijna leeg, alleen de kale constructie blijft over.",
+      },
+    ],
+  },
+  {
+    slug: "betonvloer-slopen",
+    number: "02",
+    title: "Betonvloer gesloopt",
+    location: "Goeree-Overflakkee",
+    scope: "Betonsloop",
+    description:
+      "In een oude woning de betonnen vloer uit de kamers gesloopt. Nadat de vloer in vakken was ingezaagd, hebben we met breekhamers het beton in stukken gehakt, tot tegen de muren aan. Het puin is met kruiwagens naar buiten gereden en afgevoerd, zodat de ruimte klaar was voor een nieuwe vloer.",
+    result: "Betonvloer volledig verwijderd en ruimte klaar voor de nieuwe opbouw.",
+    photos: [
+      {
+        src: "/images/projects/betonvloer-slopen/1.jpg",
+        alt: "De betonvloer in een kamer van een oude woning voordat het sloopwerk begint.",
+      },
+      {
+        src: "/images/projects/betonvloer-slopen/2.jpg",
+        alt: "De betonvloer is in vakken ingezaagd, klaar om op te breken.",
+      },
+      {
+        src: "/images/projects/betonvloer-slopen/3.jpg",
+        alt: "Twee jongens breken met breekhamers de betonvloer op.",
+      },
+      {
+        src: "/images/projects/betonvloer-slopen/4.jpg",
+        alt: "Breekwerk aan de betonvloer onder de glas-in-loodramen, puin in de kruiwagen.",
+      },
+      {
+        src: "/images/projects/betonvloer-slopen/5.jpg",
+        alt: "Het beton wordt tot tegen de muur weggehakt.",
+      },
+      {
+        src: "/images/projects/betonvloer-slopen/6.jpg",
+        alt: "Met de breekhamer worden de laatste stukken beton losgemaakt.",
+      },
+      {
+        src: "/images/projects/betonvloer-slopen/7.jpg",
+        alt: "Zicht door de deur op de kamer vol betonpuin en de kruiwagen voor de afvoer.",
+      },
+    ],
+  },
+  {
+    slug: "materiaalstelling-opbouwen",
+    number: "03",
+    title: "IJzeren materiaalstelling opgebouwd",
+    location: "Goeree-Overflakkee",
+    scope: "Montage",
+    description:
+      "Op een bedrijfsterrein een rij grote ijzeren materiaalstellingen opgebouwd voor de opslag van lange materialen. De zware staanders hebben we met de heftruck rechtop gezet en uitgelijnd, daarna de armen gemonteerd en alles stevig vastgezet. Zo staat er nu een overzichtelijke stelling waar het materiaal weer netjes op kan.",
+    result: "Complete stelling opgebouwd en klaar om te beladen.",
+    photos: [
+      {
+        src: "/images/projects/materiaalstelling-opbouwen/1.jpg",
+        alt: "Onderdelen van de ijzeren stelling liggen klaar op het bedrijfsterrein.",
+      },
+      {
+        src: "/images/projects/materiaalstelling-opbouwen/2.jpg",
+        alt: "De eerste staander van de materiaalstelling wordt met de heftruck rechtop gezet.",
+      },
+      {
+        src: "/images/projects/materiaalstelling-opbouwen/3.jpg",
+        alt: "Een staander wordt uitgelijnd voordat hij wordt vastgezet.",
+      },
+      {
+        src: "/images/projects/materiaalstelling-opbouwen/4.jpg",
+        alt: "Met z'n tweeën wordt een staander op zijn plek gehouden en gemonteerd.",
+      },
+      {
+        src: "/images/projects/materiaalstelling-opbouwen/5.jpg",
+        alt: "De armen van de stelling worden aan de staander bevestigd.",
+      },
+      {
+        src: "/images/projects/materiaalstelling-opbouwen/6.jpg",
+        alt: "De heftruck tilt het volgende onderdeel van de stelling op zijn plek.",
+      },
+      {
+        src: "/images/projects/materiaalstelling-opbouwen/7.jpg",
+        alt: "Een rij staanders staat overeind, de stelling krijgt vorm.",
+      },
+      {
+        src: "/images/projects/materiaalstelling-opbouwen/8.jpg",
+        alt: "De complete ijzeren materiaalstelling staat opgebouwd en is klaar om te beladen.",
+      },
+    ],
+  },
+  {
+    slug: "klusjes-woning",
+    number: "04",
+    title: "Klusjes in huis",
+    location: "Goeree-Overflakkee",
+    scope: "Klussen",
+    description:
+      "Een bewoner geholpen met een lijst kleine klusjes die al een tijdje bleven liggen. We hebben het trapluik en het plafond rond het trapgat geverfd, lampen vervangen en in de trapkast plankjes op maat geplaatst, zodat er eindelijk handige opbergruimte is. Tussendoor hebben we opgeruimd en alles netjes achtergelaten.",
+    result: "Trapluik en plafond strak in de verf, nieuwe verlichting en een trapkast vol handige planken.",
+    photos: [
+      {
+        src: "/images/projects/klusjes-woning/1.jpg",
+        alt: "Het trapluik wordt met de kwast geverfd in een woning.",
+      },
+      {
+        src: "/images/projects/klusjes-woning/2.jpg",
+        alt: "Plafond en kozijnen rond het trapgat worden geverfd.",
+      },
+      {
+        src: "/images/projects/klusjes-woning/3.jpg",
+        alt: "Verven vanaf de trap, de vloer is netjes afgedekt.",
+      },
+      {
+        src: "/images/projects/klusjes-woning/4.jpg",
+        alt: "Trapkast met nieuw geplaatste witte plankjes onder de trap.",
+      },
+      {
+        src: "/images/projects/klusjes-woning/5.jpg",
+        alt: "Op maat geplaatste plankjes in de trapkast.",
+      },
+      {
+        src: "/images/projects/klusjes-woning/6.jpg",
+        alt: "De trapkast in gebruik, de plankjes gevuld met voorraad.",
+      },
+      {
+        src: "/images/projects/klusjes-woning/7.jpg",
+        alt: "Eindresultaat: geverfd plafond en trapluik met een nieuwe lamp.",
+      },
+    ],
+  },
+  {
+    slug: "tegels-gang-verwijderen",
+    number: "05",
+    title: "Wand- en vloertegels in gang verwijderd",
+    location: "Goeree-Overflakkee",
+    scope: "Sloopwerk",
+    description:
+      "In de smalle gang van een woning zowel de oude wandtegels als de vloertegels eruit gehakt. Met de breekhamer hebben we de tegels van de muren en de vloer gehaald, het puin in kratten verzameld en afgevoerd. Daarna was de gang klaar voor een nieuwe afwerking.",
+    result: "Wanden en vloer ontdaan van tegels, gang puinvrij opgeleverd.",
+    photos: [
+      {
+        src: "/images/projects/tegels-gang-verwijderen/1.jpg",
+        alt: "Tegels worden in een smalle gang van de muur en de vloer gehakt, puin wordt in een krat verzameld.",
+      },
+      {
+        src: "/images/projects/tegels-gang-verwijderen/2.jpg",
+        alt: "Wandtegels deels verwijderd, de vloer ligt vol tegelpuin met de breekhamer ertussen.",
+      },
+    ],
+  },
+  {
+    slug: "dak-eraf-stad-aant-haringvliet",
+    number: "06",
     title: "Dak gedemonteerd",
     location: "Stad aan 't Haringvliet",
     scope: "Sloopwerk",
@@ -62,7 +290,7 @@ export const projects: Project[] = [
   },
   {
     slug: "muren-slopen-huis-stellendam",
-    number: "02",
+    number: "07",
     title: "Muren gesloopt",
     location: "Stellendam",
     scope: "Sloop & verbouwing",
@@ -122,7 +350,7 @@ export const projects: Project[] = [
   },
   {
     slug: "verbouwing-woning-ouddorp",
-    number: "03",
+    number: "08",
     title: "Verbouwing woning",
     location: "Ouddorp",
     scope: "Sloop & verbouwing",
@@ -154,7 +382,7 @@ export const projects: Project[] = [
   },
   {
     slug: "grind-van-dak-halen",
-    number: "04",
+    number: "09",
     title: "Grind van plat dak gehaald",
     location: "Goeree-Overflakkee",
     scope: "Dakwerk",
@@ -202,7 +430,7 @@ export const projects: Project[] = [
   },
   {
     slug: "vloer-tegels-eruit-woning",
-    number: "05",
+    number: "10",
     title: "Tegelvloer verwijderd",
     location: "Oosterland",
     scope: "Sloopwerk",
@@ -254,7 +482,7 @@ export const projects: Project[] = [
   },
   {
     slug: "tuinhuisje-slopen-ouddorp",
-    number: "06",
+    number: "11",
     title: "Tuinhuisje gesloopt",
     location: "Ouddorp",
     scope: "Sloopwerk",
@@ -282,7 +510,7 @@ export const projects: Project[] = [
   },
   {
     slug: "tuin-terrein-middelharnis",
-    number: "07",
+    number: "12",
     title: "Terrein opgehoogd langs het water",
     location: "Middelharnis",
     scope: "Grondwerk",
@@ -302,7 +530,7 @@ export const projects: Project[] = [
   },
   {
     slug: "fundering-schuur-middelharnis",
-    number: "08",
+    number: "13",
     title: "Betonnen fundering gesloopt",
     location: "Middelharnis",
     scope: "Betonsloop",
@@ -322,7 +550,7 @@ export const projects: Project[] = [
   },
   {
     slug: "woningontruiming-middelharnis",
-    number: "09",
+    number: "14",
     title: "Woning leeggehaald",
     location: "Middelharnis",
     scope: "Ontruiming",

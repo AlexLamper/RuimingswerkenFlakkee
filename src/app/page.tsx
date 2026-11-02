@@ -16,8 +16,8 @@ import { services } from "@/data/services";
 
 // Max. 3 projecten op de homepage: de nieuwste klussen + het dakproject.
 const HOME_PROJECTS = [
-  "grind-van-dak-halen",
-  "tuinhuisje-slopen-ouddorp",
+  "schuur-binnenkant-demonteren",
+  "materiaalstelling-opbouwen",
   "dak-eraf-stad-aant-haringvliet",
 ];
 
@@ -54,7 +54,10 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-container gap-10 px-5 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-14 lg:py-24">
           <Reveal>
             <div className="overflow-hidden border border-steel-200">
-              <TeamPhoto src="/images/algemeen/kvk.jpg" />
+              <TeamPhoto
+                src="/images/algemeen/teamfoto.jpg"
+                className="aspect-square object-[50%_68%]"
+              />
             </div>
           </Reveal>
 

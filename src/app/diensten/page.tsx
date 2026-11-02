@@ -99,7 +99,7 @@ export default function DienstenPage() {
                   </li>
                   <li className="flex gap-2.5">
                     <Check className="mt-0.5 h-4 w-4 flex-none text-navy-700" aria-hidden />
-                    Goedkoopste van Flakkee - betaalbaar en eerlijk
+                    Betaalbaar en eerlijk geprijsd
                   </li>
                 </ul>
               </div>

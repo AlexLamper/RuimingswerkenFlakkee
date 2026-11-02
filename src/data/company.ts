@@ -52,9 +52,13 @@ export const company = {
     "Op aanvraag vinden we vrijwel altijd een plekje - behalve op zondag.",
   kvk: "42167049",
   url: "https://www.ruimingswerkenflakkee.nl",
-  instagram: "https://www.instagram.com/ruimingswerkenflakkee",
-  // Sociale profielen (versterkt vindbaarheid/E-E-A-T via sameAs).
-  sameAs: ["https://www.instagram.com/ruimingswerkenflakkee"] as string[],
+  // Sociale profielen. Een lege URL wordt nergens getoond; vul hem in en hij
+  // verschijnt automatisch in de footer, op de contactpagina en in sameAs.
+  socials: {
+    instagram: "https://www.instagram.com/ruimingswerkenflakkee",
+    facebook: "",
+    tiktok: "",
+  },
   // Kernen op Goeree-Overflakkee waar we actief zijn - gebruikt voor
   // werkgebied-content en areaServed in structured data.
   places: [
@@ -74,3 +78,8 @@ export const company = {
     "Stad aan 't Haringvliet",
   ],
 } as const;
+
+// Ingevulde sociale profielen (versterkt vindbaarheid/E-E-A-T via sameAs).
+export const sameAs: string[] = Object.values(company.socials).filter(
+  (url: string) => url.length > 0,
+);
