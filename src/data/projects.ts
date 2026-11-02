@@ -20,7 +20,7 @@ export const projects: Project[] = [
     slug: "schuur-binnenkant-demonteren",
     number: "01",
     title: "Schuur van binnen gestript",
-    location: "Goeree-Overflakkee",
+    location: "Den Bommel",
     scope: "Demontage",
     description:
       "Een grote, oude schuur in meerdere dagen volledig van binnen gedemonteerd. Eerst hebben we het losse zaagsel van de vloer en de zolder geschept en afgevoerd. Daarna gingen de houten zoldervloer, het wandbeschot en de binnenwanden er stuk voor stuk uit, met ladders en een heftruck voor het hoge en zware werk. Al het hout is in big bags en containers verzameld en afgevoerd, zodat alleen de kale constructie overbleef.",
@@ -28,7 +28,7 @@ export const projects: Project[] = [
     photos: [
       {
         src: "/images/projects/schuur-binnenkant-demonteren/1.jpg",
-        alt: "Twee jongens scheppen zaagsel van de vloer bij de deur van een oude schuur.",
+        alt: "Twee jongens scheppen zaagsel van de vloer bij de deur van een oude schuur in Den Bommel.",
       },
       {
         src: "/images/projects/schuur-binnenkant-demonteren/2.jpg",
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     slug: "betonvloer-slopen",
     number: "02",
     title: "Betonvloer gesloopt",
-    location: "Goeree-Overflakkee",
+    location: "Den Bommel",
     scope: "Betonsloop",
     description:
       "In een oude woning de betonnen vloer uit de kamers gesloopt. Nadat de vloer in vakken was ingezaagd, hebben we met breekhamers het beton in stukken gehakt, tot tegen de muren aan. Het puin is met kruiwagens naar buiten gereden en afgevoerd, zodat de ruimte klaar was voor een nieuwe vloer.",
@@ -112,7 +112,7 @@ export const projects: Project[] = [
     photos: [
       {
         src: "/images/projects/betonvloer-slopen/1.jpg",
-        alt: "De betonvloer in een kamer van een oude woning voordat het sloopwerk begint.",
+        alt: "De betonvloer in een kamer van een oude woning in Den Bommel voordat het sloopwerk begint.",
       },
       {
         src: "/images/projects/betonvloer-slopen/2.jpg",
@@ -188,7 +188,7 @@ export const projects: Project[] = [
     slug: "klusjes-woning",
     number: "04",
     title: "Klusjes in huis",
-    location: "Goeree-Overflakkee",
+    location: "Middelharnis",
     scope: "Klussen",
     description:
       "Een bewoner geholpen met een lijst kleine klusjes die al een tijdje bleven liggen. We hebben het trapluik en het plafond rond het trapgat geverfd, lampen vervangen en in de trapkast plankjes op maat geplaatst, zodat er eindelijk handige opbergruimte is. Tussendoor hebben we opgeruimd en alles netjes achtergelaten.",
@@ -196,7 +196,7 @@ export const projects: Project[] = [
     photos: [
       {
         src: "/images/projects/klusjes-woning/1.jpg",
-        alt: "Het trapluik wordt met de kwast geverfd in een woning.",
+        alt: "Het trapluik wordt met de kwast geverfd in een woning in Middelharnis.",
       },
       {
         src: "/images/projects/klusjes-woning/2.jpg",
